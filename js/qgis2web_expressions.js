@@ -757,222 +757,157 @@ function fnc_project_color(values, context) {
 
 
 
-function exp_platform_tracks_web_3rule0_eval_expression(context) {
-    // date >= '2026-09-09' AND date < '2026-09-10' AND platform = 'vessel'
+function exp_PossibleNARWSatelliteDetection_10rule0_eval_expression(context) {
+    // Confidence = 'High'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return (((feature.properties['date']  >= '2026-09-09') && (feature.properties['date']  < '2026-09-10')) && (feature.properties['platform']  == 'vessel'));
+        return (feature.properties['Confidence']  == 'High');
     } else {
-        return (((feature['date']  >= '2026-09-09') && (feature['date']  < '2026-09-10')) && (feature['platform']  == 'vessel'));
+        return (feature['Confidence']  == 'High');
     }
 }
 
 
-function exp_platform_tracks_web_3rule1_eval_expression(context) {
-    // date >= '2026-09-09' AND date < '2026-09-10' AND platform = 'plane'
+function exp_PossibleNARWSatelliteDetection_10rule1_eval_expression(context) {
+    // Confidence = 'Medium'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return (((feature.properties['date']  >= '2026-09-09') && (feature.properties['date']  < '2026-09-10')) && (feature.properties['platform']  == 'plane'));
+        return (feature.properties['Confidence']  == 'Medium');
     } else {
-        return (((feature['date']  >= '2026-09-09') && (feature['date']  < '2026-09-10')) && (feature['platform']  == 'plane'));
+        return (feature['Confidence']  == 'Medium');
     }
 }
 
 
-function exp_platform_tracks_web_3rule2_eval_expression(context) {
-    // date >= '2026-09-08' AND date < '2026-09-09' AND platform = 'vessel'
+function exp_PossibleNARWSatelliteDetection_10rule2_eval_expression(context) {
+    // Confidence = 'Low'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return (((feature.properties['date']  >= '2026-09-08') && (feature.properties['date']  < '2026-09-09')) && (feature.properties['platform']  == 'vessel'));
+        return (feature.properties['Confidence']  == 'Low');
     } else {
-        return (((feature['date']  >= '2026-09-08') && (feature['date']  < '2026-09-09')) && (feature['platform']  == 'vessel'));
+        return (feature['Confidence']  == 'Low');
     }
 }
 
 
-function exp_platform_tracks_web_3rule3_eval_expression(context) {
-    // date >= '2026-09-08' AND date < '2026-09-09' AND platform = 'plane'
+function exp_PlatformTracks_11rule0_eval_expression(context) {
+    // platform = 'plane'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return (((feature.properties['date']  >= '2026-09-08') && (feature.properties['date']  < '2026-09-09')) && (feature.properties['platform']  == 'plane'));
+        return (feature.properties['platform']  == 'plane');
     } else {
-        return (((feature['date']  >= '2026-09-08') && (feature['date']  < '2026-09-09')) && (feature['platform']  == 'plane'));
+        return (feature['platform']  == 'plane');
     }
 }
 
 
-function exp_platform_tracks_web_3rule4_eval_expression(context) {
-    // date >= '2026-09-07' AND date < '2026-09-08' AND platform = 'vessel'
+function exp_PlatformTracks_11rule1_eval_expression(context) {
+    // platform = 'vessel'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return (((feature.properties['date']  >= '2026-09-07') && (feature.properties['date']  < '2026-09-08')) && (feature.properties['platform']  == 'vessel'));
+        return (feature.properties['platform']  == 'vessel');
     } else {
-        return (((feature['date']  >= '2026-09-07') && (feature['date']  < '2026-09-08')) && (feature['platform']  == 'vessel'));
+        return (feature['platform']  == 'vessel');
     }
 }
 
 
-function exp_platform_tracks_web_3rule5_eval_expression(context) {
-    // date >= '2026-09-07' AND date < '2026-09-08' AND platform = 'plane'
+function exp_PlatformTracks_11rule2_eval_expression(context) {
+    // platform = 'slocum'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return (((feature.properties['date']  >= '2026-09-07') && (feature.properties['date']  < '2026-09-08')) && (feature.properties['platform']  == 'plane'));
+        return (feature.properties['platform']  == 'slocum');
     } else {
-        return (((feature['date']  >= '2026-09-07') && (feature['date']  < '2026-09-08')) && (feature['platform']  == 'plane'));
+        return (feature['platform']  == 'slocum');
     }
 }
 
 
-function exp_platform_tracks_web_3rule6_eval_expression(context) {
-    // date < '2026-09-07' AND platform = 'vessel'
+function exp_WhaleDetections_12rule0_eval_expression(context) {
+    // platform = 'buoy' AND score = 'possible acoustic'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return ((feature.properties['date']  < '2026-09-07') && (feature.properties['platform']  == 'vessel'));
+        return ((feature.properties['platform']  == 'buoy') && (feature.properties['score']  == 'possible acoustic'));
     } else {
-        return ((feature['date']  < '2026-09-07') && (feature['platform']  == 'vessel'));
+        return ((feature['platform']  == 'buoy') && (feature['score']  == 'possible acoustic'));
     }
 }
 
 
-function exp_platform_tracks_web_3rule7_eval_expression(context) {
-    // date < '2026-09-07' AND platform = 'plane'
+function exp_WhaleDetections_12rule1_eval_expression(context) {
+    // platform = 'buoy' AND score = 'definite acoustic'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return ((feature.properties['date']  < '2026-09-07') && (feature.properties['platform']  == 'plane'));
+        return ((feature.properties['platform']  == 'buoy') && (feature.properties['score']  == 'definite acoustic'));
     } else {
-        return ((feature['date']  < '2026-09-07') && (feature['platform']  == 'plane'));
+        return ((feature['platform']  == 'buoy') && (feature['score']  == 'definite acoustic'));
     }
 }
 
 
-function exp_whale_detections_web_4rule0_eval_expression(context) {
-    // date >= '2026-09-09' AND date < '2026-09-10' AND platform = 'vessel' AND score = 'definite visual'
+function exp_WhaleDetections_12rule2_eval_expression(context) {
+    // platform = 'slocum' AND score = 'possible acoustic'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return ((((feature.properties['date']  >= '2026-09-09') && (feature.properties['date']  < '2026-09-10')) && (feature.properties['platform']  == 'vessel')) && (feature.properties['score']  == 'definite visual'));
+        return ((feature.properties['platform']  == 'slocum') && (feature.properties['score']  == 'possible acoustic'));
     } else {
-        return ((((feature['date']  >= '2026-09-09') && (feature['date']  < '2026-09-10')) && (feature['platform']  == 'vessel')) && (feature['score']  == 'definite visual'));
+        return ((feature['platform']  == 'slocum') && (feature['score']  == 'possible acoustic'));
     }
 }
 
 
-function exp_whale_detections_web_4rule1_eval_expression(context) {
-    // date >= '2026-09-07' AND date < '2026-09-08' AND platform = 'buoy' AND score = 'possible acoustic'
+function exp_WhaleDetections_12rule3_eval_expression(context) {
+    // platform = 'slocum' AND score = 'definite acoustic'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return ((((feature.properties['date']  >= '2026-09-07') && (feature.properties['date']  < '2026-09-08')) && (feature.properties['platform']  == 'buoy')) && (feature.properties['score']  == 'possible acoustic'));
+        return ((feature.properties['platform']  == 'slocum') && (feature.properties['score']  == 'definite acoustic'));
     } else {
-        return ((((feature['date']  >= '2026-09-07') && (feature['date']  < '2026-09-08')) && (feature['platform']  == 'buoy')) && (feature['score']  == 'possible acoustic'));
+        return ((feature['platform']  == 'slocum') && (feature['score']  == 'definite acoustic'));
     }
 }
 
 
-function exp_whale_detections_web_4rule2_eval_expression(context) {
-    // date >= '2026-09-07' AND date < '2026-09-08' AND platform = 'opportunistic' AND score = 'definite visual'
+function exp_WhaleDetections_12rule4_eval_expression(context) {
+    // platform = 'vessel' AND score = 'definite visual'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return ((((feature.properties['date']  >= '2026-09-07') && (feature.properties['date']  < '2026-09-08')) && (feature.properties['platform']  == 'opportunistic')) && (feature.properties['score']  == 'definite visual'));
+        return ((feature.properties['platform']  == 'vessel') && (feature.properties['score']  == 'definite visual'));
     } else {
-        return ((((feature['date']  >= '2026-09-07') && (feature['date']  < '2026-09-08')) && (feature['platform']  == 'opportunistic')) && (feature['score']  == 'definite visual'));
+        return ((feature['platform']  == 'vessel') && (feature['score']  == 'definite visual'));
     }
 }
 
 
-function exp_whale_detections_web_4rule3_eval_expression(context) {
-    // date < '2026-09-07' AND platform = 'buoy' AND score = 'definite acoustic'
+function exp_WhaleDetections_12rule5_eval_expression(context) {
+    // platform = 'opportunistic' AND score = 'definite visual'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return (((feature.properties['date']  < '2026-09-07') && (feature.properties['platform']  == 'buoy')) && (feature.properties['score']  == 'definite acoustic'));
+        return ((feature.properties['platform']  == 'opportunistic') && (feature.properties['score']  == 'definite visual'));
     } else {
-        return (((feature['date']  < '2026-09-07') && (feature['platform']  == 'buoy')) && (feature['score']  == 'definite acoustic'));
-    }
-}
-
-
-function exp_whale_detections_web_4rule4_eval_expression(context) {
-    // date < '2026-09-07' AND platform = 'buoy' AND score = 'possible acoustic'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (((feature.properties['date']  < '2026-09-07') && (feature.properties['platform']  == 'buoy')) && (feature.properties['score']  == 'possible acoustic'));
-    } else {
-        return (((feature['date']  < '2026-09-07') && (feature['platform']  == 'buoy')) && (feature['score']  == 'possible acoustic'));
-    }
-}
-
-
-function exp_whale_detections_web_4rule5_eval_expression(context) {
-    // date < '2026-09-07' AND platform = 'slocum' AND score = 'definite acoustic'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (((feature.properties['date']  < '2026-09-07') && (feature.properties['platform']  == 'slocum')) && (feature.properties['score']  == 'definite acoustic'));
-    } else {
-        return (((feature['date']  < '2026-09-07') && (feature['platform']  == 'slocum')) && (feature['score']  == 'definite acoustic'));
-    }
-}
-
-
-function exp_whale_detections_web_4rule6_eval_expression(context) {
-    // date < '2026-09-07' AND platform = 'slocum' AND score = 'possible acoustic'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (((feature.properties['date']  < '2026-09-07') && (feature.properties['platform']  == 'slocum')) && (feature.properties['score']  == 'possible acoustic'));
-    } else {
-        return (((feature['date']  < '2026-09-07') && (feature['platform']  == 'slocum')) && (feature['score']  == 'possible acoustic'));
-    }
-}
-
-
-function exp_whale_detections_web_4rule7_eval_expression(context) {
-    // date < '2026-09-07' AND platform = 'vessel' AND score = 'definite visual'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (((feature.properties['date']  < '2026-09-07') && (feature.properties['platform']  == 'vessel')) && (feature.properties['score']  == 'definite visual'));
-    } else {
-        return (((feature['date']  < '2026-09-07') && (feature['platform']  == 'vessel')) && (feature['score']  == 'definite visual'));
-    }
-}
-
-
-function exp_whale_detections_web_4rule8_eval_expression(context) {
-    // date < '2026-09-07' AND platform = 'opportunistic' AND score = 'definite visual'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (((feature.properties['date']  < '2026-09-07') && (feature.properties['platform']  == 'opportunistic')) && (feature.properties['score']  == 'definite visual'));
-    } else {
-        return (((feature['date']  < '2026-09-07') && (feature['platform']  == 'opportunistic')) && (feature['score']  == 'definite visual'));
+        return ((feature['platform']  == 'opportunistic') && (feature['score']  == 'definite visual'));
     }
 }
