@@ -17,6 +17,3 @@ immediately by opening the "index.html" file.
 Example:
 
 "https://www.example.com/my-map/index.html"
-
-To update: 
-Updating it next week is easier than the first time: on the repo page, Add file → Upload files, drag the new export contents in, commit. GitHub replaces files with the same name. The URL never changes, so any link you've sent keeps working.
