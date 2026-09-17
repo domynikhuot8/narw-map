@@ -757,46 +757,7 @@ function fnc_project_color(values, context) {
 
 
 
-function exp_PossibleNARWSatelliteDetection_10rule0_eval_expression(context) {
-    // Confidence = 'High'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.properties['Confidence']  == 'High');
-    } else {
-        return (feature['Confidence']  == 'High');
-    }
-}
-
-
-function exp_PossibleNARWSatelliteDetection_10rule1_eval_expression(context) {
-    // Confidence = 'Medium'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.properties['Confidence']  == 'Medium');
-    } else {
-        return (feature['Confidence']  == 'Medium');
-    }
-}
-
-
-function exp_PossibleNARWSatelliteDetection_10rule2_eval_expression(context) {
-    // Confidence = 'Low'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.properties['Confidence']  == 'Low');
-    } else {
-        return (feature['Confidence']  == 'Low');
-    }
-}
-
-
-function exp_PlatformTracks_11rule0_eval_expression(context) {
+function exp_PlatformTracks_10rule0_eval_expression(context) {
     // platform = 'plane'
 
     var feature = context.feature;
@@ -809,7 +770,7 @@ function exp_PlatformTracks_11rule0_eval_expression(context) {
 }
 
 
-function exp_PlatformTracks_11rule1_eval_expression(context) {
+function exp_PlatformTracks_10rule1_eval_expression(context) {
     // platform = 'vessel'
 
     var feature = context.feature;
@@ -822,7 +783,7 @@ function exp_PlatformTracks_11rule1_eval_expression(context) {
 }
 
 
-function exp_PlatformTracks_11rule2_eval_expression(context) {
+function exp_PlatformTracks_10rule2_eval_expression(context) {
     // platform = 'slocum'
 
     var feature = context.feature;
@@ -831,6 +792,45 @@ function exp_PlatformTracks_11rule2_eval_expression(context) {
         return (feature.properties['platform']  == 'slocum');
     } else {
         return (feature['platform']  == 'slocum');
+    }
+}
+
+
+function exp_PossibleNARWSatelliteDetection_11rule0_eval_expression(context) {
+    // Confidence = 'High'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['Confidence']  == 'High');
+    } else {
+        return (feature['Confidence']  == 'High');
+    }
+}
+
+
+function exp_PossibleNARWSatelliteDetection_11rule1_eval_expression(context) {
+    // Confidence = 'Medium'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['Confidence']  == 'Medium');
+    } else {
+        return (feature['Confidence']  == 'Medium');
+    }
+}
+
+
+function exp_PossibleNARWSatelliteDetection_11rule2_eval_expression(context) {
+    // Confidence = 'Low'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['Confidence']  == 'Low');
+    } else {
+        return (feature['Confidence']  == 'Low');
     }
 }
 

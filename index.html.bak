@@ -445,7 +445,6 @@
             if (exp_PlatformTracks_10rule0_eval_expression(context)) {
                   return {
                 pane: 'pane_PlatformTracks_10',
-                shape: 'circle',
                 opacity: 1,
                 color: 'rgba(185,137,70,1.0)',
                 dashArray: '',
@@ -459,7 +458,6 @@
                 else if (exp_PlatformTracks_10rule1_eval_expression(context)) {
                   return {
                 pane: 'pane_PlatformTracks_10',
-                shape: 'square',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -473,7 +471,6 @@
                 else if (exp_PlatformTracks_10rule2_eval_expression(context)) {
                   return {
                 pane: 'pane_PlatformTracks_10',
-                shape: 'circle',
                 opacity: 1,
                 color: 'rgba(56,246,249,1.0)',
                 dashArray: '',
@@ -706,7 +703,6 @@
                 else if (exp_WhaleDetections_12rule2_eval_expression(context)) {
                   return {
                 pane: 'pane_WhaleDetections_12',
-                shape: 'circle',
                 radius: 9.2,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -723,7 +719,6 @@
                 else if (exp_WhaleDetections_12rule3_eval_expression(context)) {
                   return {
                 pane: 'pane_WhaleDetections_12',
-                shape: 'circle',
                 radius: 9.2,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -880,110 +875,5 @@
             }
         });
         </script>        
-    
-<div id="narw-info-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:10000;align-items:center;justify-content:center;">
-  <div style="background:white;padding:30px;border-radius:8px;max-width:600px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 4px 10px rgba(0,0,0,0.3);position:relative;">
-    <button onclick="document.getElementById('narw-info-modal').style.display='none'" style="position:absolute;top:10px;right:15px;background:none;border:none;font-size:28px;cursor:pointer;color:#aaa;">X</button>
-    <h2 style="margin:0 0 15px 0;color:#2c3e50;">North Atlantic Right Whale Monitoring</h2>
-    <p style="color:#34495e;line-height:1.6;margin:15px 0;">Data presented is based on an ongoing study of the North Atlantic right whale, looking at ways to detect them in zones of high sea traffic in an attempt to create a warning system to protect this endangered species.</p>
-    <p style="color:#34495e;line-height:1.6;margin:15px 0;"><strong>How to use this map:</strong></p>
-    <ul style="color:#34495e;line-height:1.8;margin:15px 0;padding-left:20px;">
-      <li>Use the legend on the right to navigate different layers and data sets</li>
-      <li>Check and uncheck layers to display desired data</li>
-      <li>Click on individual features to see detailed information</li>
-      <li>Use the zoom controls or scroll wheel to navigate</li>
-    </ul>
-  </div>
-</div>
-
-
-
-<script>
-(function() {
-  var modal = document.getElementById('narw-info-modal');
-  if (!modal) return;
-  
-  window.addEventListener('load', function() {
-    modal.style.display = 'flex';
-  });
-  
-  modal.onclick = function(e) {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  };
-})();
-</script>
-
-
-<div id="narw-info-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:10000;align-items:center;justify-content:center;">
-  <div style="background:white;padding:30px;border-radius:8px;max-width:600px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 4px 10px rgba(0,0,0,0.3);position:relative;">
-    <button onclick="document.getElementById('narw-info-modal').style.display='none'" style="position:absolute;top:10px;right:15px;background:none;border:none;font-size:28px;cursor:pointer;color:#aaa;">X</button>
-    <h2 style="margin:0 0 15px 0;color:#2c3e50;">North Atlantic Right Whale Monitoring</h2>
-    <p style="color:#34495e;line-height:1.6;margin:15px 0;">Data presented is based on an ongoing study of the North Atlantic right whale, looking at ways to detect them in zones of high sea traffic in an attempt to create a warning system to protect this endangered species.</p>
-    <p style="color:#34495e;line-height:1.6;margin:15px 0;"><strong>How to use this map:</strong></p>
-    <ul style="color:#34495e;line-height:1.8;margin:15px 0;padding-left:20px;">
-      <li>Use the legend on the right to navigate different layers and data sets</li>
-      <li>Check and uncheck layers to display desired data</li>
-      <li>Click on individual features to see detailed information</li>
-      <li>Use the zoom controls or scroll wheel to navigate</li>
-    </ul>
-  </div>
-</div>
-
-
-
-<script>
-(function() {
-  var modal = document.getElementById('narw-info-modal');
-  if (!modal) return;
-  
-  window.addEventListener('load', function() {
-    modal.style.display = 'flex';
-  });
-  
-  modal.onclick = function(e) {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  };
-})();
-</script>
-
-
-<div id="narw-info-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:10000;align-items:center;justify-content:center;">
-  <div style="background:white;padding:30px;border-radius:8px;max-width:600px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 4px 10px rgba(0,0,0,0.3);position:relative;">
-    <button onclick="document.getElementById('narw-info-modal').style.display='none'" style="position:absolute;top:10px;right:15px;background:none;border:none;font-size:28px;cursor:pointer;color:#aaa;">X</button>
-    <h2 style="margin:0 0 15px 0;color:#2c3e50;">North Atlantic Right Whale Monitoring</h2>
-    <p style="color:#34495e;line-height:1.6;margin:15px 0;">Data presented is based on an ongoing study of the North Atlantic right whale, looking at ways to detect them in zones of high sea traffic in an attempt to create a warning system to protect this endangered species.</p>
-    <p style="color:#34495e;line-height:1.6;margin:15px 0;"><strong>How to use this map:</strong></p>
-    <ul style="color:#34495e;line-height:1.8;margin:15px 0;padding-left:20px;">
-      <li>Use the legend on the right to navigate different layers and data sets</li>
-      <li>Check and uncheck layers to display desired data</li>
-      <li>Click on individual features to see detailed information</li>
-      <li>Use the zoom controls or scroll wheel to navigate</li>
-    </ul>
-  </div>
-</div>
-
-<button id="narw-info-button" onclick="document.getElementById('narw-info-modal').style.display='flex'" style="position:fixed;bottom:20px;left:20px;z-index:9999;width:40px;height:40px;border-radius:50%;background:#2196F3;border:none;color:white;font-size:20px;font-weight:bold;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,0.3);">i</button>
-
-<script>
-(function() {
-  var modal = document.getElementById('narw-info-modal');
-  if (!modal) return;
-  
-  window.addEventListener('load', function() {
-    modal.style.display = 'flex';
-  });
-  
-  modal.onclick = function(e) {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  };
-})();
-</script>
-
-</body>
+    </body>
 </html>
