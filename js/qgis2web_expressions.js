@@ -757,7 +757,7 @@ function fnc_project_color(values, context) {
 
 
 
-function exp_PlatformTracks_11rule0_eval_expression(context) {
+function exp_PlatformTracks_18rule0_eval_expression(context) {
     // platform = 'plane'
 
     var feature = context.feature;
@@ -770,7 +770,7 @@ function exp_PlatformTracks_11rule0_eval_expression(context) {
 }
 
 
-function exp_PlatformTracks_11rule1_eval_expression(context) {
+function exp_PlatformTracks_18rule1_eval_expression(context) {
     // platform = 'vessel'
 
     var feature = context.feature;
@@ -783,7 +783,7 @@ function exp_PlatformTracks_11rule1_eval_expression(context) {
 }
 
 
-function exp_PlatformTracks_11rule2_eval_expression(context) {
+function exp_PlatformTracks_18rule2_eval_expression(context) {
     // platform = 'buoy'
 
     var feature = context.feature;
@@ -796,7 +796,7 @@ function exp_PlatformTracks_11rule2_eval_expression(context) {
 }
 
 
-function exp_PossibleNARWSatelliteDetection_12rule0_eval_expression(context) {
+function exp_PossibleNARWSatelliteDetection_19rule0_eval_expression(context) {
     // Confidence = 'High'
 
     var feature = context.feature;
@@ -809,7 +809,7 @@ function exp_PossibleNARWSatelliteDetection_12rule0_eval_expression(context) {
 }
 
 
-function exp_PossibleNARWSatelliteDetection_12rule1_eval_expression(context) {
+function exp_PossibleNARWSatelliteDetection_19rule1_eval_expression(context) {
     // Confidence = 'Medium'
 
     var feature = context.feature;
@@ -822,7 +822,7 @@ function exp_PossibleNARWSatelliteDetection_12rule1_eval_expression(context) {
 }
 
 
-function exp_PossibleNARWSatelliteDetection_12rule2_eval_expression(context) {
+function exp_PossibleNARWSatelliteDetection_19rule2_eval_expression(context) {
     // Confidence = 'Low'
 
     var feature = context.feature;
@@ -835,20 +835,7 @@ function exp_PossibleNARWSatelliteDetection_12rule2_eval_expression(context) {
 }
 
 
-function exp_WhaleDetections_13rule0_eval_expression(context) {
-    // platform = 'buoy' AND score = 'possible acoustic'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return ((feature.properties['platform']  == 'buoy') && (feature.properties['score']  == 'possible acoustic'));
-    } else {
-        return ((feature['platform']  == 'buoy') && (feature['score']  == 'possible acoustic'));
-    }
-}
-
-
-function exp_WhaleDetections_13rule1_eval_expression(context) {
+function exp_WhaleDetections_20rule0_eval_expression(context) {
     // platform = 'buoy' AND score = 'definite acoustic'
 
     var feature = context.feature;
@@ -861,20 +848,20 @@ function exp_WhaleDetections_13rule1_eval_expression(context) {
 }
 
 
-function exp_WhaleDetections_13rule2_eval_expression(context) {
-    // platform = 'slocum' AND score = 'possible acoustic'
+function exp_WhaleDetections_20rule1_eval_expression(context) {
+    // platform = 'buoy' AND score = 'possible acoustic'
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return ((feature.properties['platform']  == 'slocum') && (feature.properties['score']  == 'possible acoustic'));
+        return ((feature.properties['platform']  == 'buoy') && (feature.properties['score']  == 'possible acoustic'));
     } else {
-        return ((feature['platform']  == 'slocum') && (feature['score']  == 'possible acoustic'));
+        return ((feature['platform']  == 'buoy') && (feature['score']  == 'possible acoustic'));
     }
 }
 
 
-function exp_WhaleDetections_13rule3_eval_expression(context) {
+function exp_WhaleDetections_20rule2_eval_expression(context) {
     // platform = 'slocum' AND score = 'definite acoustic'
 
     var feature = context.feature;
@@ -887,7 +874,20 @@ function exp_WhaleDetections_13rule3_eval_expression(context) {
 }
 
 
-function exp_WhaleDetections_13rule4_eval_expression(context) {
+function exp_WhaleDetections_20rule3_eval_expression(context) {
+    // platform = 'slocum' AND score = 'possible acoustic'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'slocum') && (feature.properties['score']  == 'possible acoustic'));
+    } else {
+        return ((feature['platform']  == 'slocum') && (feature['score']  == 'possible acoustic'));
+    }
+}
+
+
+function exp_WhaleDetections_20rule4_eval_expression(context) {
     // platform = 'vessel' AND score = 'definite visual'
 
     var feature = context.feature;
@@ -900,7 +900,7 @@ function exp_WhaleDetections_13rule4_eval_expression(context) {
 }
 
 
-function exp_WhaleDetections_13rule5_eval_expression(context) {
+function exp_WhaleDetections_20rule5_eval_expression(context) {
     // platform = 'plane' AND score = 'definite visual'
 
     var feature = context.feature;
@@ -909,5 +909,18 @@ function exp_WhaleDetections_13rule5_eval_expression(context) {
         return ((feature.properties['platform']  == 'plane') && (feature.properties['score']  == 'definite visual'));
     } else {
         return ((feature['platform']  == 'plane') && (feature['score']  == 'definite visual'));
+    }
+}
+
+
+function exp_WhaleDetections_20rule6_eval_expression(context) {
+    // platform = 'opportunistic' AND score = 'definite visual'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'opportunistic') && (feature.properties['score']  == 'definite visual'));
+    } else {
+        return ((feature['platform']  == 'opportunistic') && (feature['score']  == 'definite visual'));
     }
 }
