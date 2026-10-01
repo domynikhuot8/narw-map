@@ -824,7 +824,7 @@
                 lineJoin: 'bevel',
                 weight: 2.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_BoatTracks12Sept2026_17');
@@ -832,7 +832,7 @@
         map.getPane('pane_BoatTracks12Sept2026_17').style['mix-blend-mode'] = 'normal';
         var layer_BoatTracks12Sept2026_17 = new L.geoJson(json_BoatTracks12Sept2026_17, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_BoatTracks12Sept2026_17',
             layerName: 'layer_BoatTracks12Sept2026_17',
             pane: 'pane_BoatTracks12Sept2026_17',
