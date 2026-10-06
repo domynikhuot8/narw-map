@@ -6,7 +6,23 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css">
+                <style>body { visibility: hidden; }</style>
+        <script>
+          var password = "MitacsNARW";
+          var ok = sessionStorage.getItem("unlocked") === "yes";
+          if (!ok) {
+            ok = prompt("Enter the password:") === password;
+            if (ok) sessionStorage.setItem("unlocked", "yes");
+          }
+          if (ok) {
+            document.addEventListener("DOMContentLoaded", function () {
+              document.body.style.visibility = "visible";
+            });
+          } else {
+            alert("Wrong password. Refresh the page to try again.");
+          }
+        </script>
+		<link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
