@@ -7,13 +7,9 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
                 <style>body { visibility: hidden; }</style>
-        <script>
+                <script>
           var password = "MitacsNARW";
-          var ok = sessionStorage.getItem("unlocked") === "yes";
-          if (!ok) {
-            ok = prompt("Enter the password:") === password;
-            if (ok) sessionStorage.setItem("unlocked", "yes");
-          }
+          var ok = prompt("Enter the password:") === password;
           if (ok) {
             document.addEventListener("DOMContentLoaded", function () {
               document.body.style.visibility = "visible";
