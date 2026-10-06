@@ -1,0 +1,1929 @@
+<!doctype html>
+<html lang="en">
+    <head>
+<!-- narw-gate start -->
+<style>
+  html:not(.narw-unlocked) body > *:not(#narw-gate) { visibility: hidden !important; }
+  #narw-gate { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100000;
+               background: #1f2d3d; display: flex; align-items: center;
+               justify-content: center; font-family: Arial, sans-serif; }
+  #narw-gate form { background: #fff; padding: 26px 30px; border-radius: 8px;
+                    width: 300px; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
+  #narw-gate h3 { margin: 0 0 8px 0; color: #2c3e50; }
+  #narw-gate p { margin: 0 0 14px 0; color: #34495e; font-size: 14px; }
+  #narw-gate input { width: 100%; box-sizing: border-box; padding: 8px;
+                     font-size: 15px; margin-bottom: 10px; }
+  #narw-gate button { width: 100%; padding: 8px; font-size: 15px; border: none;
+                      border-radius: 4px; background: #2196F3; color: #fff; cursor: pointer; }
+  #narw-gate .narw-gate-err { color: #c0392b; font-size: 13px; margin-top: 8px; min-height: 16px; }
+</style>
+<script>
+(function() {
+  var HASH = "fe258248";
+  function fnv(s) {
+    var b = new TextEncoder().encode(s), h = 0x811c9dc5;
+    for (var i = 0; i < b.length; i++) { h ^= b[i]; h = Math.imul(h, 0x01000193) >>> 0; }
+    return ('00000000' + h.toString(16)).slice(-8);
+  }
+  try {
+    if (sessionStorage.getItem('narw-ok') === HASH) {
+      document.documentElement.classList.add('narw-unlocked');
+      return;
+    }
+  } catch (e) {}
+  document.addEventListener('DOMContentLoaded', function() {
+    var d = document.createElement('div');
+    d.id = 'narw-gate';
+    d.innerHTML = '<form><h3>North Atlantic Right Whale Monitoring</h3>' +
+      '<p>Enter the password to view the map.</p>' +
+      '<input type="password" autocomplete="current-password">' +
+      '<button type="submit">Open the map</button><div class="narw-gate-err"></div></form>';
+    document.body.appendChild(d);
+    var form = d.querySelector('form'), inp = d.querySelector('input'),
+        err = d.querySelector('.narw-gate-err');
+    inp.focus();
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (fnv(inp.value) === HASH) {
+        try { sessionStorage.setItem('narw-ok', HASH); } catch (x) {}
+        document.documentElement.classList.add('narw-unlocked');
+        d.parentNode.removeChild(d);
+        if (window.map && window.map.invalidateSize) window.map.invalidateSize();
+      } else {
+        err.textContent = 'Wrong password — try again.';
+        inp.value = '';
+        inp.focus();
+      }
+    });
+  });
+})();
+</script>
+<!-- narw-gate end -->
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet.photon.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/L.Control.Layers.Tree.min.js"></script>
+        <script src="js/leaflet-svg-shape-markers.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet.photon.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="data/Satellitefootprints_4.js"></script>
+        <script src="data/PlatformTracks_5.js"></script>
+        <script src="data/WhaleDetections_6.js"></script>
+        <script src="data/PossibleNARWSatelliteDetection_7.js"></script>
+        <script src="data/Satellitefootprints_12.js"></script>
+        <script src="data/PlatformTracks_13.js"></script>
+        <script src="data/WhaleDetections_14.js"></script>
+        <script src="data/PossibleNARWSatelliteDetection_15.js"></script>
+        <script src="data/ZoneA_16.js"></script>
+        <script src="data/BoatTracks12Sept2026_17.js"></script>
+        <script src="data/CopepodSampling12Sept2026_18.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+            highlightLayer.openPopup();
+        }
+        var map = L.map('map', {
+            zoomControl:false, maxZoom:18, minZoom:1
+        }).fitBounds([[46.76363271144016,-66.69870786417236],[61.8794427022896,-59.43855771768726]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        // remove popup's row if "visible-with-data"
+        function removeEmptyRowsFromPopupContent(content, feature) {
+         var tempDiv = document.createElement('div');
+         tempDiv.innerHTML = content;
+         var rows = tempDiv.querySelectorAll('tr');
+         for (var i = 0; i < rows.length; i++) {
+             var td = rows[i].querySelector('td.visible-with-data');
+             var key = td ? td.id : '';
+             if (td && td.classList.contains('visible-with-data') && feature.properties[key] == null) {
+                 rows[i].parentNode.removeChild(rows[i]);
+             }
+         }
+         return tempDiv.innerHTML;
+        }
+        // modify popup if contains media
+        function addClassToPopupIfMedia(content, popup) {
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = content;
+            var imgTd = tempDiv.querySelector('td img');
+            if (imgTd) {
+                var src = imgTd.getAttribute('src');
+                if (/\.(jpg|jpeg|png|gif|bmp|webp|avif)$/i.test(src)) {
+                    popup._contentNode.classList.add('media');
+                    var img = popup._contentNode.querySelector('td img');
+                    if (img) {
+                        // If already loaded (cache), update immediately
+                        if (img.complete && img.naturalHeight > 0) {
+                            popup.update();
+                        } else {
+                            img.addEventListener('load', function() {
+                                popup.update();
+                            });
+                            img.addEventListener('error', function() {
+                                popup.update();
+                            });
+                        }
+                    }
+                } else if (/\.(mp3|wav|ogg|aac)$/i.test(src)) {
+                    var audio = document.createElement('audio');
+                    audio.controls = true;
+                    audio.src = src;
+                    imgTd.parentNode.replaceChild(audio, imgTd);
+                    popup._contentNode.classList.add('media');
+                    setTimeout(function() {
+                        popup.setContent(tempDiv.innerHTML);
+                        popup.update();
+                    }, 10);
+                } else if (/\.(mp4|webm|ogg|mov)$/i.test(src)) {
+                    var video = document.createElement('video');
+                    video.controls = true;
+                    video.src = src;
+                    video.style.width = "400px";
+                    video.style.height = "300px";
+                    video.style.maxHeight = "60vh";
+                    video.style.maxWidth = "60vw";
+                    imgTd.parentNode.replaceChild(video, imgTd);
+                    popup._contentNode.classList.add('media');
+                    // Aggiorna il popup quando il video carica i metadati
+                    video.addEventListener('loadedmetadata', function() {
+                        popup.update();
+                    });
+                    setTimeout(function() {
+                        popup.setContent(tempDiv.innerHTML);
+                        popup.update();
+                    }, 10);
+                } else {
+                    popup._contentNode.classList.remove('media');
+                }
+            } else {
+                popup._contentNode.classList.remove('media');
+            }
+        }
+        var zoomControl = L.control.zoom({
+            position: 'topleft'
+        }).addTo(map);
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0].innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0].className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_GoogleSatellite_0');
+        map.getPane('pane_GoogleSatellite_0').style.zIndex = 400;
+        var layer_GoogleSatellite_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 18,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleSatellite_0;
+        map.addLayer(layer_GoogleSatellite_0);
+        map.createPane('pane_GoogleLabels_1');
+        map.getPane('pane_GoogleLabels_1').style.zIndex = 401;
+        var layer_GoogleLabels_1 = L.tileLayer('https://mt1.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleLabels_1',
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 18,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleLabels_1;
+        map.addLayer(layer_GoogleLabels_1);
+        map.createPane('pane_RCM7Sep2026_2');
+        map.getPane('pane_RCM7Sep2026_2').style.zIndex = 402;
+        var img_RCM7Sep2026_2 = 'data/RCM7Sep2026_2.png';
+        var img_bounds_RCM7Sep2026_2 = [[48.490656714359076,-65.5303122393657],[49.995018902495055,-63.37915622624127]];
+        var layer_RCM7Sep2026_2 = new L.imageOverlay(img_RCM7Sep2026_2,
+                                              img_bounds_RCM7Sep2026_2,
+                                              {pane: 'pane_RCM7Sep2026_2'});
+        bounds_group.addLayer(layer_RCM7Sep2026_2);
+        map.createPane('pane_RCM12Sep2026_3');
+        map.getPane('pane_RCM12Sep2026_3').style.zIndex = 403;
+        var img_RCM12Sep2026_3 = 'data/RCM12Sep2026_3.png';
+        var img_bounds_RCM12Sep2026_3 = [[48.81608180088847,-66.13346098151067],[50.16575947843791,-63.98421270980256]];
+        var layer_RCM12Sep2026_3 = new L.imageOverlay(img_RCM12Sep2026_3,
+                                              img_bounds_RCM12Sep2026_3,
+                                              {pane: 'pane_RCM12Sep2026_3'});
+        bounds_group.addLayer(layer_RCM12Sep2026_3);
+        function pop_Satellitefootprints_4(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">sensor</th>\
+                        <td>' + (feature.properties['sensor'] !== null ? autolinker.link(String(feature.properties['sensor']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_Satellitefootprints_4_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_Satellitefootprints_4rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_Satellitefootprints_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+                else if (exp_Satellitefootprints_4rule1_eval_expression(context)) {
+                  return {
+                pane: 'pane_Satellitefootprints_4',
+                opacity: 1,
+                color: 'rgba(51,160,44,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_Satellitefootprints_4');
+        map.getPane('pane_Satellitefootprints_4').style.zIndex = 404;
+        map.getPane('pane_Satellitefootprints_4').style['mix-blend-mode'] = 'normal';
+        var layer_Satellitefootprints_4 = new L.geoJson(json_Satellitefootprints_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Satellitefootprints_4',
+            layerName: 'layer_Satellitefootprints_4',
+            pane: 'pane_Satellitefootprints_4',
+            onEachFeature: pop_Satellitefootprints_4,
+            style: style_Satellitefootprints_4_0,
+        });
+        bounds_group.addLayer(layer_Satellitefootprints_4);
+        function pop_PlatformTracks_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_PlatformTracks_5_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_PlatformTracks_5rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_PlatformTracks_5',
+                opacity: 1,
+                color: 'rgba(201,168,118,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+                else if (exp_PlatformTracks_5rule1_eval_expression(context)) {
+                  return {
+                pane: 'pane_PlatformTracks_5',
+                opacity: 1,
+                color: 'rgba(26,26,26,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+                else if (exp_PlatformTracks_5rule2_eval_expression(context)) {
+                  return {
+                pane: 'pane_PlatformTracks_5',
+                opacity: 1,
+                color: 'rgba(31,71,136,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_PlatformTracks_5');
+        map.getPane('pane_PlatformTracks_5').style.zIndex = 405;
+        map.getPane('pane_PlatformTracks_5').style['mix-blend-mode'] = 'normal';
+        var layer_PlatformTracks_5 = new L.geoJson(json_PlatformTracks_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PlatformTracks_5',
+            layerName: 'layer_PlatformTracks_5',
+            pane: 'pane_PlatformTracks_5',
+            onEachFeature: pop_PlatformTracks_5,
+            style: style_PlatformTracks_5_0,
+        });
+        bounds_group.addLayer(layer_PlatformTracks_5);
+        function pop_WhaleDetections_6(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">lat</th>\
+                        <td>' + (feature.properties['lat'] !== null ? autolinker.link(String(feature.properties['lat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">lon</th>\
+                        <td>' + (feature.properties['lon'] !== null ? autolinker.link(String(feature.properties['lon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">species</th>\
+                        <td>' + (feature.properties['species'] !== null ? autolinker.link(String(feature.properties['species']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">score</th>\
+                        <td>' + (feature.properties['score'] !== null ? autolinker.link(String(feature.properties['score']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">number</th>\
+                        <td>' + (feature.properties['number'] !== null ? autolinker.link(String(feature.properties['number']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">calves</th>\
+                        <td>' + (feature.properties['calves'] !== null ? autolinker.link(String(feature.properties['calves']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_WhaleDetections_6_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_WhaleDetections_6rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetections_6',
+                shape: 'triangle',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,209,26,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_WhaleDetections_6rule1_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetections_6',
+                shape: 'triangle',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,40,40,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_WhaleDetections_6rule2_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetections_6',
+                shape: 'circle',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,209,26,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_WhaleDetections_6rule3_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetections_6',
+                shape: 'circle',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,40,40,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_WhaleDetections_6rule4_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetections_6',
+                shape: 'square',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(140,140,140,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_WhaleDetections_6rule5_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetections_6',
+                shape: 'circle',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(140,140,140,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_WhaleDetections_6');
+        map.getPane('pane_WhaleDetections_6').style.zIndex = 406;
+        map.getPane('pane_WhaleDetections_6').style['mix-blend-mode'] = 'normal';
+        var layer_WhaleDetections_6 = new L.geoJson(json_WhaleDetections_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_WhaleDetections_6',
+            layerName: 'layer_WhaleDetections_6',
+            pane: 'pane_WhaleDetections_6',
+            onEachFeature: pop_WhaleDetections_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_WhaleDetections_6_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_WhaleDetections_6);
+        function pop_PossibleNARWSatelliteDetection_7(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Confidence</th>\
+                        <td>' + (feature.properties['Confidence'] !== null ? autolinker.link(String(feature.properties['Confidence']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">target_type</th>\
+                        <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">source_image</th>\
+                        <td>' + (feature.properties['source_image'] !== null ? autolinker.link(String(feature.properties['source_image']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">image_date</th>\
+                        <td>' + (feature.properties['image_date'] !== null ? autolinker.link(String(feature.properties['image_date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">length_meters</th>\
+                        <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(String(feature.properties['notes']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['chip'] !== null ? '<img src="images/' + String(feature.properties['chip']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">latitude</th>\
+                        <td>' + (feature.properties['latitude'] !== null ? autolinker.link(String(feature.properties['latitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">longitude</th>\
+                        <td>' + (feature.properties['longitude'] !== null ? autolinker.link(String(feature.properties['longitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>chip_ssc4_u0001_pansharpened</strong><br />' + (feature.properties['chip_ssc4_u0001_pansharpened'] !== null ? autolinker.link(String(feature.properties['chip_ssc4_u0001_pansharpened']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>PNEO · 27 Sep 2026</strong><br />' + (feature.properties['chip_pneo20260927blue'] !== null ? '<img src="images/' + String(feature.properties['chip_pneo20260927blue']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>SkySat · 27 Sep</strong><br />' + (feature.properties['chip_skysat_27_sept_0001'] !== null ? '<img src="images/' + String(feature.properties['chip_skysat_27_sept_0001']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_PossibleNARWSatelliteDetection_7_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_PossibleNARWSatelliteDetection_7rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_PossibleNARWSatelliteDetection_7',
+                shape: 'x',
+                radius: 5.2,
+                opacity: 1,
+                color: 'rgba(214,40,40,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,40,40,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_PossibleNARWSatelliteDetection_7rule1_eval_expression(context)) {
+                  return {
+                pane: 'pane_PossibleNARWSatelliteDetection_7',
+                shape: 'x',
+                radius: 5.2,
+                opacity: 1,
+                color: 'rgba(255,209,26,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,209,26,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_PossibleNARWSatelliteDetection_7rule2_eval_expression(context)) {
+                  return {
+                pane: 'pane_PossibleNARWSatelliteDetection_7',
+                shape: 'x',
+                radius: 5.2,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_PossibleNARWSatelliteDetection_7');
+        map.getPane('pane_PossibleNARWSatelliteDetection_7').style.zIndex = 407;
+        map.getPane('pane_PossibleNARWSatelliteDetection_7').style['mix-blend-mode'] = 'normal';
+        var layer_PossibleNARWSatelliteDetection_7 = new L.geoJson(json_PossibleNARWSatelliteDetection_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PossibleNARWSatelliteDetection_7',
+            layerName: 'layer_PossibleNARWSatelliteDetection_7',
+            pane: 'pane_PossibleNARWSatelliteDetection_7',
+            onEachFeature: pop_PossibleNARWSatelliteDetection_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_PossibleNARWSatelliteDetection_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_PossibleNARWSatelliteDetection_7);
+        map.createPane('pane_RCM20Sep2026_8');
+        map.getPane('pane_RCM20Sep2026_8').style.zIndex = 408;
+        var img_RCM20Sep2026_8 = 'data/RCM20Sep2026_8.png';
+        var img_bounds_RCM20Sep2026_8 = [[48.8404006590741,-66.07669407956472],[50.14036796212501,-64.05624974158464]];
+        var layer_RCM20Sep2026_8 = new L.imageOverlay(img_RCM20Sep2026_8,
+                                              img_bounds_RCM20Sep2026_8,
+                                              {pane: 'pane_RCM20Sep2026_8'});
+        bounds_group.addLayer(layer_RCM20Sep2026_8);
+        map.createPane('pane_RCM26Sep2026_9');
+        map.getPane('pane_RCM26Sep2026_9').style.zIndex = 409;
+        var img_RCM26Sep2026_9 = 'data/RCM26Sep2026_9.png';
+        var img_bounds_RCM26Sep2026_9 = [[48.39161626415429,-64.70272897400561],[49.845022278672154,-62.75103462065144]];
+        var layer_RCM26Sep2026_9 = new L.imageOverlay(img_RCM26Sep2026_9,
+                                              img_bounds_RCM26Sep2026_9,
+                                              {pane: 'pane_RCM26Sep2026_9'});
+        bounds_group.addLayer(layer_RCM26Sep2026_9);
+        map.addLayer(layer_RCM26Sep2026_9);
+        map.createPane('pane_RCM27Sep2026_10');
+        map.getPane('pane_RCM27Sep2026_10').style.zIndex = 410;
+        var img_RCM27Sep2026_10 = 'data/RCM27Sep2026_10.png';
+        var img_bounds_RCM27Sep2026_10 = [[48.5473161022477,-65.37349011995164],[50.02105955367189,-63.501552176216656]];
+        var layer_RCM27Sep2026_10 = new L.imageOverlay(img_RCM27Sep2026_10,
+                                              img_bounds_RCM27Sep2026_10,
+                                              {pane: 'pane_RCM27Sep2026_10'});
+        bounds_group.addLayer(layer_RCM27Sep2026_10);
+        map.addLayer(layer_RCM27Sep2026_10);
+        map.createPane('pane_RCM28Sep2026_11');
+        map.getPane('pane_RCM28Sep2026_11').style.zIndex = 411;
+        var img_RCM28Sep2026_11 = 'data/RCM28Sep2026_11.png';
+        var img_bounds_RCM28Sep2026_11 = [[48.89787715632986,-66.0789484217226],[50.16528545555855,-63.98852457300263]];
+        var layer_RCM28Sep2026_11 = new L.imageOverlay(img_RCM28Sep2026_11,
+                                              img_bounds_RCM28Sep2026_11,
+                                              {pane: 'pane_RCM28Sep2026_11'});
+        bounds_group.addLayer(layer_RCM28Sep2026_11);
+        map.addLayer(layer_RCM28Sep2026_11);
+        function pop_Satellitefootprints_12(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">sensor</th>\
+                        <td>' + (feature.properties['sensor'] !== null ? autolinker.link(String(feature.properties['sensor']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_Satellitefootprints_12_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_Satellitefootprints_12rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_Satellitefootprints_12',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+                else if (exp_Satellitefootprints_12rule1_eval_expression(context)) {
+                  return {
+                pane: 'pane_Satellitefootprints_12',
+                opacity: 1,
+                color: 'rgba(51,160,44,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_Satellitefootprints_12');
+        map.getPane('pane_Satellitefootprints_12').style.zIndex = 412;
+        map.getPane('pane_Satellitefootprints_12').style['mix-blend-mode'] = 'normal';
+        var layer_Satellitefootprints_12 = new L.geoJson(json_Satellitefootprints_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Satellitefootprints_12',
+            layerName: 'layer_Satellitefootprints_12',
+            pane: 'pane_Satellitefootprints_12',
+            onEachFeature: pop_Satellitefootprints_12,
+            style: style_Satellitefootprints_12_0,
+        });
+        bounds_group.addLayer(layer_Satellitefootprints_12);
+        map.addLayer(layer_Satellitefootprints_12);
+        function pop_PlatformTracks_13(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_PlatformTracks_13_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_PlatformTracks_13rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_PlatformTracks_13',
+                opacity: 1,
+                color: 'rgba(201,168,118,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+                else if (exp_PlatformTracks_13rule1_eval_expression(context)) {
+                  return {
+                pane: 'pane_PlatformTracks_13',
+                opacity: 1,
+                color: 'rgba(26,26,26,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+                else if (exp_PlatformTracks_13rule2_eval_expression(context)) {
+                  return {
+                pane: 'pane_PlatformTracks_13',
+                opacity: 1,
+                color: 'rgba(30,126,30,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+                else if (exp_PlatformTracks_13rule3_eval_expression(context)) {
+                  return {
+                pane: 'pane_PlatformTracks_13',
+                opacity: 1,
+                color: 'rgba(31,71,136,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_PlatformTracks_13');
+        map.getPane('pane_PlatformTracks_13').style.zIndex = 413;
+        map.getPane('pane_PlatformTracks_13').style['mix-blend-mode'] = 'normal';
+        var layer_PlatformTracks_13 = new L.geoJson(json_PlatformTracks_13, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PlatformTracks_13',
+            layerName: 'layer_PlatformTracks_13',
+            pane: 'pane_PlatformTracks_13',
+            onEachFeature: pop_PlatformTracks_13,
+            style: style_PlatformTracks_13_0,
+        });
+        bounds_group.addLayer(layer_PlatformTracks_13);
+        function pop_WhaleDetections_14(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">lat</th>\
+                        <td>' + (feature.properties['lat'] !== null ? autolinker.link(String(feature.properties['lat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">lon</th>\
+                        <td>' + (feature.properties['lon'] !== null ? autolinker.link(String(feature.properties['lon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['group'] !== null ? autolinker.link(String(feature.properties['group']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">species</th>\
+                        <td>' + (feature.properties['species'] !== null ? autolinker.link(String(feature.properties['species']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">score</th>\
+                        <td>' + (feature.properties['score'] !== null ? autolinker.link(String(feature.properties['score']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">number</th>\
+                        <td>' + (feature.properties['number'] !== null ? autolinker.link(String(feature.properties['number']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">calves</th>\
+                        <td>' + (feature.properties['calves'] !== null ? autolinker.link(String(feature.properties['calves']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['time'] !== null ? autolinker.link(String(feature.properties['time']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['source'] !== null ? autolinker.link(String(feature.properties['source']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_WhaleDetections_14_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_WhaleDetections_14rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetections_14',
+                shape: 'triangle',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,40,40,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_WhaleDetections_14rule1_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetections_14',
+                shape: 'triangle',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,209,26,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_WhaleDetections_14rule2_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetections_14',
+                shape: 'circle',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,40,40,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_WhaleDetections_14rule3_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetections_14',
+                shape: 'circle',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,209,26,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_WhaleDetections_14rule4_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetections_14',
+                shape: 'square',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(140,140,140,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_WhaleDetections_14rule5_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetections_14',
+                shape: 'circle',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(140,140,140,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_WhaleDetections_14rule6_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetections_14',
+                shape: 'diamond',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(140,140,140,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_WhaleDetections_14');
+        map.getPane('pane_WhaleDetections_14').style.zIndex = 414;
+        map.getPane('pane_WhaleDetections_14').style['mix-blend-mode'] = 'normal';
+        var layer_WhaleDetections_14 = new L.geoJson(json_WhaleDetections_14, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_WhaleDetections_14',
+            layerName: 'layer_WhaleDetections_14',
+            pane: 'pane_WhaleDetections_14',
+            onEachFeature: pop_WhaleDetections_14,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_WhaleDetections_14_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_WhaleDetections_14);
+        map.addLayer(layer_WhaleDetections_14);
+        function pop_PossibleNARWSatelliteDetection_15(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Confidence</th>\
+                        <td>' + (feature.properties['Confidence'] !== null ? autolinker.link(String(feature.properties['Confidence']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">target_type</th>\
+                        <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">source_image</th>\
+                        <td>' + (feature.properties['source_image'] !== null ? autolinker.link(String(feature.properties['source_image']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">image_date</th>\
+                        <td>' + (feature.properties['image_date'] !== null ? autolinker.link(String(feature.properties['image_date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">length_meters</th>\
+                        <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(String(feature.properties['notes']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['chip'] !== null ? '<img src="images/' + String(feature.properties['chip']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">latitude</th>\
+                        <td>' + (feature.properties['latitude'] !== null ? autolinker.link(String(feature.properties['latitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">longitude</th>\
+                        <td>' + (feature.properties['longitude'] !== null ? autolinker.link(String(feature.properties['longitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PNEO · 27 Sep 2026</th>\
+                        <td>' + (feature.properties['chip_pneo20260927blue'] !== null ? '<img src="images/' + String(feature.properties['chip_pneo20260927blue']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SkySat · 27 Sep</th>\
+                        <td>' + (feature.properties['chip_skysat_27_sept_0001'] !== null ? '<img src="images/' + String(feature.properties['chip_skysat_27_sept_0001']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_PossibleNARWSatelliteDetection_15_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_PossibleNARWSatelliteDetection_15rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_PossibleNARWSatelliteDetection_15',
+                shape: 'x',
+                radius: 5.2,
+                opacity: 1,
+                color: 'rgba(214,40,40,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,40,40,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_PossibleNARWSatelliteDetection_15rule1_eval_expression(context)) {
+                  return {
+                pane: 'pane_PossibleNARWSatelliteDetection_15',
+                shape: 'x',
+                radius: 5.2,
+                opacity: 1,
+                color: 'rgba(255,209,26,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,209,26,1.0)',
+                interactive: true,
+            };
+                }
+                else if (exp_PossibleNARWSatelliteDetection_15rule2_eval_expression(context)) {
+                  return {
+                pane: 'pane_PossibleNARWSatelliteDetection_15',
+                shape: 'x',
+                radius: 5.2,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_PossibleNARWSatelliteDetection_15');
+        map.getPane('pane_PossibleNARWSatelliteDetection_15').style.zIndex = 415;
+        map.getPane('pane_PossibleNARWSatelliteDetection_15').style['mix-blend-mode'] = 'normal';
+        var layer_PossibleNARWSatelliteDetection_15 = new L.geoJson(json_PossibleNARWSatelliteDetection_15, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PossibleNARWSatelliteDetection_15',
+            layerName: 'layer_PossibleNARWSatelliteDetection_15',
+            pane: 'pane_PossibleNARWSatelliteDetection_15',
+            onEachFeature: pop_PossibleNARWSatelliteDetection_15,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_PossibleNARWSatelliteDetection_15_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_PossibleNARWSatelliteDetection_15);
+        map.addLayer(layer_PossibleNARWSatelliteDetection_15);
+        function pop_ZoneA_16(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_ZoneA_16_0() {
+            return {
+                pane: 'pane_ZoneA_16',
+                opacity: 1,
+                color: 'rgba(53,121,177,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_ZoneA_16');
+        map.getPane('pane_ZoneA_16').style.zIndex = 416;
+        map.getPane('pane_ZoneA_16').style['mix-blend-mode'] = 'normal';
+        var layer_ZoneA_16 = new L.geoJson(json_ZoneA_16, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_ZoneA_16',
+            layerName: 'layer_ZoneA_16',
+            pane: 'pane_ZoneA_16',
+            onEachFeature: pop_ZoneA_16,
+            style: style_ZoneA_16_0,
+        });
+        bounds_group.addLayer(layer_ZoneA_16);
+        map.addLayer(layer_ZoneA_16);
+        function pop_BoatTracks12Sept2026_17(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_BoatTracks12Sept2026_17_0() {
+            return {
+                pane: 'pane_BoatTracks12Sept2026_17',
+                opacity: 1,
+                color: 'rgba(255,127,0,1.0)',
+                dashArray: '8.0,4.0',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_BoatTracks12Sept2026_17');
+        map.getPane('pane_BoatTracks12Sept2026_17').style.zIndex = 417;
+        map.getPane('pane_BoatTracks12Sept2026_17').style['mix-blend-mode'] = 'normal';
+        var layer_BoatTracks12Sept2026_17 = new L.geoJson(json_BoatTracks12Sept2026_17, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_BoatTracks12Sept2026_17',
+            layerName: 'layer_BoatTracks12Sept2026_17',
+            pane: 'pane_BoatTracks12Sept2026_17',
+            onEachFeature: pop_BoatTracks12Sept2026_17,
+            style: style_BoatTracks12Sept2026_17_0,
+        });
+        bounds_group.addLayer(layer_BoatTracks12Sept2026_17);
+        map.addLayer(layer_BoatTracks12Sept2026_17);
+        function pop_CopepodSampling12Sept2026_18(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CopepodSampling12Sept2026_18_0() {
+            return {
+                pane: 'pane_CopepodSampling12Sept2026_18',
+                radius: 2.8,
+                opacity: 1,
+                color: 'rgba(154,221,123,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(133,182,111,0.0)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_CopepodSampling12Sept2026_18');
+        map.getPane('pane_CopepodSampling12Sept2026_18').style.zIndex = 418;
+        map.getPane('pane_CopepodSampling12Sept2026_18').style['mix-blend-mode'] = 'normal';
+        var layer_CopepodSampling12Sept2026_18 = new L.geoJson(json_CopepodSampling12Sept2026_18, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_CopepodSampling12Sept2026_18',
+            layerName: 'layer_CopepodSampling12Sept2026_18',
+            pane: 'pane_CopepodSampling12Sept2026_18',
+            onEachFeature: pop_CopepodSampling12Sept2026_18,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CopepodSampling12Sept2026_18_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CopepodSampling12Sept2026_18);
+        map.addLayer(layer_CopepodSampling12Sept2026_18);
+        var overlaysTree = [
+        {label: '<b>Fieldwork</b>',  selectAllCheckbox: true, children: [
+            {label: '<img src="legend/CopepodSampling12Sept2026_18.png" /> Copepod Sampling: 12 Sept 2026', layer: layer_CopepodSampling12Sept2026_18},
+            {label: '<img src="legend/BoatTracks12Sept2026_17.png" /> Boat Tracks: 12 Sept 2026', layer: layer_BoatTracks12Sept2026_17},]},
+        {label: '<b>Shipping Zones</b>',  selectAllCheckbox: true, children: [
+            {label: '<img src="legend/ZoneA_16.png" /> Zone A', layer: layer_ZoneA_16},]},
+        {label: '<b>Sept 20 – Oct 1</b>',  selectAllCheckbox: true, children: [
+            {label: 'Possible NARW Satellite Detection<br /><table><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetection_15_HighConfidence0.png" /></td><td>High Confidence</td></tr><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetection_15_MediumConfidence1.png" /></td><td>Medium Confidence</td></tr><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetection_15_LowConfidence2.png" /></td><td>Low Confidence</td></tr></table>', layer: layer_PossibleNARWSatelliteDetection_15},
+            {label: 'Whale Detections<br /><table><tr><td style="text-align: center;"><img src="legend/WhaleDetections_14_Buoymooredhydrophonedefiniteacoustic0.png" /></td><td>Buoy (moored hydrophone) - definite acoustic</td></tr><tr><td style="text-align: center;"><img src="legend/WhaleDetections_14_Buoymooredhydrophonepossibleacoustic1.png" /></td><td>Buoy (moored hydrophone) - possible acoustic</td></tr><tr><td style="text-align: center;"><img src="legend/WhaleDetections_14_Slocumgliderdefiniteacoustic2.png" /></td><td>Slocum glider - definite acoustic</td></tr><tr><td style="text-align: center;"><img src="legend/WhaleDetections_14_Slocumgliderpossibleacoustic3.png" /></td><td>Slocum glider - possible acoustic</td></tr><tr><td style="text-align: center;"><img src="legend/WhaleDetections_14_Vesselsurveydefinitevisual4.png" /></td><td>Vessel survey - definite visual</td></tr><tr><td style="text-align: center;"><img src="legend/WhaleDetections_14_Aerialsurveydefinitevisual5.png" /></td><td>Aerial survey - definite visual</td></tr><tr><td style="text-align: center;"><img src="legend/WhaleDetections_14_Opportunisticsightingdefinitevisual6.png" /></td><td>Opportunistic sighting - definite visual</td></tr></table>', layer: layer_WhaleDetections_14},
+            {label: 'Platform Tracks<br /><table><tr><td style="text-align: center;"><img src="legend/PlatformTracks_13_Aerialsurvey0.png" /></td><td>Aerial survey</td></tr><tr><td style="text-align: center;"><img src="legend/PlatformTracks_13_Vessel1.png" /></td><td>Vessel</td></tr><tr><td style="text-align: center;"><img src="legend/PlatformTracks_13_Buoy2.png" /></td><td>Buoy</td></tr><tr><td style="text-align: center;"><img src="legend/PlatformTracks_13_Slocumglider3.png" /></td><td>Slocum glider</td></tr></table>', layer: layer_PlatformTracks_13},
+            {label: 'Satellite footprints<br /><table><tr><td style="text-align: center;"><img src="legend/Satellitefootprints_12_SkySat0.png" /></td><td>SkySat</td></tr><tr><td style="text-align: center;"><img src="legend/Satellitefootprints_12_PNEO1.png" /></td><td>PNEO</td></tr></table>', layer: layer_Satellitefootprints_12},]},
+        {label: '<b>RCM Images Late Sept</b>',  selectAllCheckbox: true, children: [
+            {label: "RCM 28 Sep 2026", layer: layer_RCM28Sep2026_11},
+            {label: "RCM 27 Sep 2026", layer: layer_RCM27Sep2026_10},
+            {label: "RCM 26 Sep 2026", layer: layer_RCM26Sep2026_9},
+            {label: "RCM 20 Sep 2026", layer: layer_RCM20Sep2026_8},]},
+        {label: '<b>Sept 1 – 19</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: 'Possible NARW Satellite Detection<br /><table><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetection_7_HighConfidence0.png" /></td><td>High Confidence</td></tr><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetection_7_MediumConfidence1.png" /></td><td>Medium Confidence</td></tr><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetection_7_LowConfidence2.png" /></td><td>Low Confidence</td></tr></table>', layer: layer_PossibleNARWSatelliteDetection_7},
+            {label: 'Whale Detections<br /><table><tr><td style="text-align: center;"><img src="legend/WhaleDetections_6_Buoymooredhydrophonepossibleacoustic0.png" /></td><td>Buoy (moored hydrophone) - possible acoustic</td></tr><tr><td style="text-align: center;"><img src="legend/WhaleDetections_6_Buoymooredhydrophonedefiniteacoustic1.png" /></td><td>Buoy (moored hydrophone) - definite acoustic</td></tr><tr><td style="text-align: center;"><img src="legend/WhaleDetections_6_Slocumgliderpossibleacoustic2.png" /></td><td>Slocum glider - possible acoustic</td></tr><tr><td style="text-align: center;"><img src="legend/WhaleDetections_6_Slocumgliderdefiniteacoustic3.png" /></td><td>Slocum glider - definite acoustic</td></tr><tr><td style="text-align: center;"><img src="legend/WhaleDetections_6_Vesselsurveydefinitevisual4.png" /></td><td>Vessel survey - definite visual</td></tr><tr><td style="text-align: center;"><img src="legend/WhaleDetections_6_Aerialsurveydefinitevisual5.png" /></td><td>Aerial survey - definite visual</td></tr></table>', layer: layer_WhaleDetections_6},
+            {label: 'Platform Tracks<br /><table><tr><td style="text-align: center;"><img src="legend/PlatformTracks_5_Aerialsurvey0.png" /></td><td>Aerial survey</td></tr><tr><td style="text-align: center;"><img src="legend/PlatformTracks_5_Vessel1.png" /></td><td>Vessel</td></tr><tr><td style="text-align: center;"><img src="legend/PlatformTracks_5_Slocumglider2.png" /></td><td>Slocum glider</td></tr></table>', layer: layer_PlatformTracks_5},
+            {label: 'Satellite footprints<br /><table><tr><td style="text-align: center;"><img src="legend/Satellitefootprints_4_SkySat0.png" /></td><td>SkySat</td></tr><tr><td style="text-align: center;"><img src="legend/Satellitefootprints_4_PNEO1.png" /></td><td>PNEO</td></tr></table>', layer: layer_Satellitefootprints_4},]},
+        {label: '<b>RCM Images Early Sept </b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: "RCM 12 Sep 2026", layer: layer_RCM12Sep2026_3},
+            {label: "RCM 7 Sep 2026", layer: layer_RCM7Sep2026_2},]},
+            {label: "Google Labels", layer: layer_GoogleLabels_1},
+            {label: "Google Satellite", layer: layer_GoogleSatellite_0, radioGroup: 'bm' },]
+        var lay = L.control.layers.tree(null, overlaysTree,{
+            //namedToggle: true,
+            //selectorBack: false,
+            //closedSymbol: '&#8862; &#x1f5c0;',
+            //openedSymbol: '&#8863; &#x1f5c1;',
+            //collapseAll: 'Collapse all',
+            //expandAll: 'Expand all',
+            collapsed: false, 
+        });
+        lay.addTo(map);
+		document.addEventListener("DOMContentLoaded", function() {
+            // set new Layers List height which considers toggle icon
+            function newLayersListHeight() {
+                var layerScrollbarElement = document.querySelector('.leaflet-control-layers-scrollbar');
+                if (layerScrollbarElement) {
+                    var layersListElement = document.querySelector('.leaflet-control-layers-list');
+                    var originalHeight = layersListElement.style.height 
+                        || window.getComputedStyle(layersListElement).height;
+                    var newHeight = parseFloat(originalHeight) - 50;
+                    layersListElement.style.height = newHeight + 'px';
+                }
+            }
+            var isLayersListExpanded = true;
+            var controlLayersElement = document.querySelector('.leaflet-control-layers');
+            var toggleLayerControl = document.querySelector('.leaflet-control-layers-toggle');
+            // toggle Collapsed/Expanded and apply new Layers List height
+            toggleLayerControl.addEventListener('click', function() {
+                if (isLayersListExpanded) {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                } else {
+                    controlLayersElement.classList.add('leaflet-control-layers-expanded');
+                }
+                isLayersListExpanded = !isLayersListExpanded;
+                newLayersListHeight()
+            });	
+			// apply new Layers List height if toggle layerstree
+			if (controlLayersElement) {
+				controlLayersElement.addEventListener('click', function(event) {
+					var toggleLayerHeaderPointer = event.target.closest('.leaflet-layerstree-header-pointer span');
+					if (toggleLayerHeaderPointer) {
+						newLayersListHeight();
+					}
+				});
+			}
+            // Collapsed/Expanded at Start to apply new height
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            // Collapsed touch/small screen
+            var isSmallScreen = window.innerWidth < 650;
+            if (isSmallScreen) {
+                setTimeout(function() {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                    isLayersListExpanded = !isLayersListExpanded;
+                }, 500);
+            }  
+        });       
+        setBounds();
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>        
+    
+<!-- narw-web-fix start -->
+<style>
+  .leaflet-popup-content img { max-width: 100%; height: auto; }
+  table.narw-cand { border-collapse: collapse; }
+  table.narw-cand th { text-align: left; padding: 1px 14px 1px 0;
+                       font-weight: bold; vertical-align: top; white-space: nowrap; }
+  table.narw-cand td { padding: 1px 0; }
+  .narw-popup { max-height: calc(100vh - 140px) !important;
+                overflow-y: auto !important; overflow-x: hidden !important;
+                padding-right: 6px; }
+  .leaflet-popup-content:has(.narw-popup) { height: auto !important;
+                                            overflow: visible !important; }
+  .narw-chip { margin-top: 10px; }
+  .narw-chip-label { font-weight: bold; margin-bottom: 3px; }
+  .narw-chip img { display: block; width: 100%; max-width: 460px;
+                   height: auto; max-height: 50vh; object-fit: contain; }
+</style>
+<script>
+(function() {
+  var HOVER_CLOSE_DELAY_MS = 400;
+  var CHIP_W = 460;                      // CHIP_WIDTH_PX in the .py
+  var CHIP_H = 50;                      // CHIP_MAX_HEIGHT_VH in the .py
+  var CHIP_H_MULTI = 26;               // CHIP_MAX_HEIGHT_VH_MULTI
+  var POPUP_MAX_WIDTH = Math.max(820, CHIP_W + 40);
+  var POPUP_SCREEN_MARGIN = 60;
+
+  function popupSize() {
+    return {
+      maxWidth: Math.max(250, Math.min(POPUP_MAX_WIDTH,
+                                       window.innerWidth - POPUP_SCREEN_MARGIN)),
+      maxHeight: Math.max(200, window.innerHeight - POPUP_SCREEN_MARGIN)
+    };
+  }
+
+  // -------------------------------------------------------------------
+  // 1. NARW CANDIDATE POPUPS — rebuilt from the feature's own data
+  // -------------------------------------------------------------------
+  var CAND_LAYER = /PossibleNARW/i;
+  var ROWS = ['Confidence', 'target_type', 'source_image', 'image_date',
+              'length_meters', 'notes', 'latitude', 'longitude'];
+  var SENSOR_ORDER = {'SkySat': 0, 'PNEO': 1, 'RCM': 2, 'Image': 3};
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug',
+                'Sep', 'Oct', 'Nov', 'Dec'];
+
+  function blank(v) {
+    return v === null || v === undefined || String(v).trim() === '' ||
+           String(v) === 'NULL';
+  }
+  function esc(v) {
+    return String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function prettyDate(v) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(v));
+    if (!m) return String(v);
+    return parseInt(m[3], 10) + ' ' + MONTHS[parseInt(m[2], 10) - 1] + ' ' + m[1];
+  }
+  function sensorOf(field, path, props) {
+    var s = (field + ' ' + path).toLowerCase();
+    if (s.indexOf('pneo') >= 0) return 'PNEO';
+    if (s.indexOf('skysat') >= 0 || /ssc\d/.test(s)) return 'SkySat';
+    if (s.indexOf('rcm') >= 0) return 'RCM';
+    var src = String(props.source_image || '').toLowerCase();
+    if (src.indexOf('pneo') >= 0) return 'PNEO';
+    if (src.indexOf('skysat') >= 0) return 'SkySat';
+    return 'Image';
+  }
+  function dateOf(field, path, props) {
+    var m = /(20\d{2})(\d{2})(\d{2})/.exec(field + ' ' + path);
+    if (m) return prettyDate(m[1] + '-' + m[2] + '-' + m[3]);
+    return blank(props.image_date) ? '' : prettyDate(props.image_date);
+  }
+  // Where the image may be: our copy of attachments\ first, then the
+  // places qgis2web itself copies images to.
+  function srcList(path) {
+    var p = String(path).replace(/\\/g, '/');
+    return [p, 'images/' + p, 'images/' + p.replace(/[\/:]/g, '_'),
+            'images/' + p.split('/').pop()];
+  }
+  window.narwImgLoaded = function() {
+    if (window.map && map._popup && map._popup.isOpen && map._popup.isOpen()) {
+      map._popup.update();
+    }
+  };
+  window.narwNextSrc = function(img) {
+    var list = JSON.parse(img.getAttribute('data-srcs'));
+    var i = parseInt(img.getAttribute('data-i') || '0', 10) + 1;
+    if (i < list.length) {
+      img.setAttribute('data-i', i);
+      img.src = list[i];
+    } else {
+      img.style.display = 'none';
+      var lab = img.previousSibling;
+      if (lab) lab.textContent += ' (image not found)';
+    }
+  };
+
+  function candidateHtml(props) {
+    var rows = '';
+    ROWS.forEach(function(k) {
+      var v = props[k];
+      if (blank(v)) return;
+      if ((k === 'latitude' || k === 'longitude') && !isNaN(parseFloat(v))) {
+        v = parseFloat(v).toFixed(5);
+      }
+      rows += '<tr><th>' + esc(k) + '</th><td>' + esc(v) + '</td></tr>';
+    });
+
+    var chips = [], seen = {};
+    Object.keys(props).forEach(function(k, order) {
+      if (!/^chip/i.test(k)) return;
+      var v = props[k];
+      if (blank(v)) return;
+      var key = String(v).replace(/\\/g, '/').toLowerCase();
+      if (seen[key]) return;
+      seen[key] = true;
+      var sensor = sensorOf(k, v, props);
+      chips.push({path: v, sensor: sensor, date: dateOf(k, v, props),
+                  rank: SENSOR_ORDER[sensor], order: order});
+    });
+    chips.sort(function(a, b) { return (a.rank - b.rank) || (a.order - b.order); });
+
+    // Several chips share the height, so they all fit in the box
+    var h = chips.length > 1 ? CHIP_H_MULTI : CHIP_H;
+    var html = '<div class="narw-popup"><table class="narw-cand">' + rows + '</table>';
+    chips.forEach(function(c) {
+      var srcs = srcList(c.path);
+      html += '<div class="narw-chip"><div class="narw-chip-label">' +
+              esc(c.sensor + (c.date ? ' · ' + c.date : '')) + '</div>' +
+              '<img style="max-height:' + h + 'vh" src="' + esc(srcs[0]) +
+              '" data-i="0" data-srcs="' + esc(JSON.stringify(srcs)) +
+              '" onload="narwImgLoaded()" onerror="narwNextSrc(this)"></div>';
+    });
+    return html + '</div>';
+  }
+
+  function candidatePopups(group) {
+    if (!group || !group._layers) return;
+    var name = (group.options && (group.options.layerName ||
+                                  group.options.dataVar)) || '';
+    if (!CAND_LAYER.test(name)) return;
+    var n = 0;
+    Object.keys(group._layers).forEach(function(id) {
+      var l = group._layers[id];
+      if (!l || !l.feature || l._narwCand) return;
+      var html = candidateHtml(l.feature.properties || {});
+      if (l.getPopup && l.getPopup()) l.setPopupContent(html);
+      else l.bindPopup(html, popupSize());
+      l._narwCand = true;
+      n++;
+    });
+    if (n) console.log('narw: rebuilt ' + n + ' candidate popup(s) in ' + name);
+  }
+
+  // -------------------------------------------------------------------
+  // 1b. FOOTPRINTS — hover on the OUTLINE only
+  //     A footprint has no visible fill, but its interior still catches the
+  //     mouse and steals the popups of the candidates inside it. With
+  //     fill:false Leaflet only reacts to the outline. The layer's style
+  //     function is wrapped too, because qgis2web re-applies it after every
+  //     hover (resetStyle), which would bring the fill back.
+  // -------------------------------------------------------------------
+  var FOOTPRINT_LAYER = /Satellitefootprints/i;
+  function footprintOutlineOnly(group) {
+    if (!group || !group._layers || group._narwFp) return;
+    var name = (group.options && (group.options.layerName ||
+                                  group.options.dataVar)) || '';
+    if (!FOOTPRINT_LAYER.test(name)) return;
+    group._narwFp = true;
+    var orig = group.options.style;
+    group.options.style = function(f) {
+      var st = (typeof orig === 'function') ? orig(f) : (orig || {});
+      st = Object.assign({}, st);
+      st.fill = false;
+      return st;
+    };
+    group.eachLayer(function(l) { if (l.setStyle) l.setStyle({fill: false}); });
+    console.log('narw: footprints react on their outline only — ' + name);
+  }
+
+  // -------------------------------------------------------------------
+  // 2. STICKY POPUPS — every layer that has a popup
+  // -------------------------------------------------------------------
+  function makeSticky(layer) {
+    if (!layer || layer._narwSticky) return;
+    if (typeof layer.getPopup !== 'function' ||
+        typeof layer.closePopup !== 'function') return;
+    if (!layer.getPopup()) return;
+    layer._narwSticky = true;
+
+    var realClose = layer.closePopup;
+    var timer = null;
+    var inPopup = false;
+
+    layer.closePopup = function() {
+      var self = this;
+      clearTimeout(timer);
+      timer = setTimeout(function() {
+        if (!inPopup) realClose.call(self);
+      }, HOVER_CLOSE_DELAY_MS);
+      return this;
+    };
+    layer.on('mouseover', function() { clearTimeout(timer); });
+    layer.on('popupopen', function(e) {
+      var p = e.popup;
+      Object.assign(p.options, popupSize());
+      var el = p.getElement();
+      // Leaflet sizes a popup to its text, and an image set to fit the
+      // popup then shrinks to that width. A popup holding chips is given a
+      // minimum width instead, so the chip gets its full size.
+      if (el && el.querySelector('.narw-chip')) {
+        p.options.minWidth = Math.min(CHIP_W, p.options.maxWidth);
+        // The .narw-popup wrapper scrolls on its own; Leaflet's height cap
+        // measured the box before the images loaded, which let them spill out.
+        p.options.maxHeight = null;
+      }
+      if (el) {
+        el.querySelectorAll('img').forEach(function(img) {
+          if (!img.complete) {
+            img.addEventListener('load', function() { p.update(); }, { once: true });
+          }
+        });
+      }
+      p.update();
+      if (!el || el._narwSticky) return;
+      el._narwSticky = true;
+      el.addEventListener('mouseenter', function() { inPopup = true; clearTimeout(timer); });
+      el.addEventListener('mouseleave', function() { inPopup = false; layer.closePopup(); });
+    });
+    layer.on('popupclose', function() { inPopup = false; clearTimeout(timer); });
+  }
+
+  // -------------------------------------------------------------------
+  // 3. SHAPE CONVERSION — non-circle markers become ShapeMarkers
+  // -------------------------------------------------------------------
+  var shapeWarned = false;
+  function convertGroup(group) {
+    if (!group || !group._layers) return;
+    if (typeof L.shapeMarker !== 'function') {
+      if (!shapeWarned) {
+        console.warn('narw: shape library missing — all markers stay circles');
+        shapeWarned = true;
+      }
+      return;
+    }
+    Object.keys(group._layers).forEach(function(id) {
+      var old = group._layers[id];
+      if (!old || old._narwConverted) return;
+      var shape = old.options && old.options.shape;
+      var latlng = old._latlng;
+      if (!shape || shape === 'circle' || !latlng) return;
+      try {
+        var popup = old.getPopup ? old.getPopup() : null;
+        var popupContent = popup ? popup._content : null;
+        var popupOptions = popup ? Object.assign({}, popup.options) : {};
+        Object.assign(popupOptions, popupSize(), { autoPan: true, autoPanPadding: [20, 20] });
+        var tooltip = old.getTooltip ? old.getTooltip() : null;
+        var feature = old.feature;
+        group.removeLayer(old);
+        var m = L.shapeMarker(latlng, Object.assign({}, old.options));
+        m._narwConverted = true;
+        if (feature) m.feature = feature;
+        if (popupContent) m.bindPopup(popupContent, popupOptions);
+        if (tooltip) m.bindTooltip(tooltip._content, Object.assign({}, tooltip.options));
+        m.on('mouseover', function() { this.openPopup(); });
+        m.on('mouseout', function() { this.closePopup(); });
+        group.addLayer(m);
+      } catch (e) {
+        console.log('narw: failed to convert a marker:', e.message);
+      }
+    });
+  }
+
+  // -------------------------------------------------------------------
+  // 4. RUN NOW, AND FOR ANY LAYER ADDED LATER
+  //    order matters: convert, then rebuild candidate popups, then sticky
+  // -------------------------------------------------------------------
+  function treat(l) {
+    if (l && l._layers) {
+      footprintOutlineOnly(l);
+      convertGroup(l);
+      candidatePopups(l);
+      Object.keys(l._layers).forEach(function(id) { makeSticky(l._layers[id]); });
+    }
+    makeSticky(l);
+  }
+
+  function init() {
+    var map = window.map;
+    if (!map || typeof map.eachLayer !== 'function') {
+      setTimeout(init, 300);
+      return;
+    }
+    var all = [];
+    map.eachLayer(function(l) { all.push(l); });
+    all.forEach(treat);
+    map.on('layeradd', function(e) { treat(e.layer); });
+    console.log('narw: shapes, candidate popups and sticky popups ready');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { setTimeout(init, 500); });
+  } else {
+    setTimeout(init, 500);
+  }
+})();
+</script>
+
+<div id="narw-info-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:10000;align-items:center;justify-content:center;">
+  <div style="background:white;padding:30px;border-radius:8px;max-width:600px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 4px 10px rgba(0,0,0,0.3);position:relative;">
+    <button onclick="document.getElementById('narw-info-modal').style.display='none'" style="position:absolute;top:10px;right:15px;background:none;border:none;font-size:28px;cursor:pointer;color:#aaa;">X</button>
+    <h2 style="margin:0 0 15px 0;color:#2c3e50;">North Atlantic Right Whale Monitoring</h2>
+    <p style="color:#34495e;line-height:1.6;margin:15px 0;">Data presented is based on an ongoing study of the North Atlantic right whale, looking at ways to detect them in zones of high sea traffic in an attempt to create a warning system to protect this endangered species.</p>
+    <p style="color:#34495e;line-height:1.6;margin:15px 0;"><strong>How to use this map:</strong></p>
+    <ul style="color:#34495e;line-height:1.8;margin:15px 0;padding-left:20px;">
+      <li>Use the legend on the right to navigate the layers</li>
+      <li>Data is grouped by time period; each period has its own RCM imagery group just below it</li>
+      <li>Check and uncheck groups or layers to display the data you want</li>
+      <li>Hover over or click a feature to see its details; move into the popup to keep it open</li>
+      <li>Use the zoom controls or scroll wheel to navigate</li>
+    </ul>
+    <p style="color:#34495e;line-height:1.6;margin:15px 0;"><strong>Periods:</strong> the most recent period is shown when the map opens. Tick an earlier period in the legend to compare.</p>
+  </div>
+</div>
+<button id="narw-info-button" onclick="document.getElementById('narw-info-modal').style.display='flex'" style="position:fixed;bottom:20px;left:20px;z-index:9999;width:40px;height:40px;border-radius:50%;background:#2196F3;border:none;color:white;font-size:20px;font-weight:bold;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,0.3);">i</button>
+<script>
+(function() {
+  var modal = document.getElementById('narw-info-modal');
+  if (!modal) return;
+  window.addEventListener('load', function() { modal.style.display = 'flex'; });
+  modal.onclick = function(e) { if (e.target === modal) modal.style.display = 'none'; };
+})();
+</script>
+<!-- narw-web-fix end -->
+</body>
+</html>
