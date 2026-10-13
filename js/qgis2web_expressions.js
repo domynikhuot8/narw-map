@@ -757,7 +757,7 @@ function fnc_project_color(values, context) {
 
 
 
-function exp_SatellitefootprintsPNEO1Sep2026_4rule0_eval_expression(context) {
+function exp_SatellitefootprintsPNEO1Sep2026_6rule0_eval_expression(context) {
     // sensor = 'PNEO'
 
     var feature = context.feature;
@@ -770,7 +770,7 @@ function exp_SatellitefootprintsPNEO1Sep2026_4rule0_eval_expression(context) {
 }
 
 
-function exp_SatellitefootprintsSkySat9Sep2026_5rule0_eval_expression(context) {
+function exp_SatellitefootprintsSkySat9Sep2026_7rule0_eval_expression(context) {
     // sensor = 'SkySat'
 
     var feature = context.feature;
@@ -783,7 +783,7 @@ function exp_SatellitefootprintsSkySat9Sep2026_5rule0_eval_expression(context) {
 }
 
 
-function exp_SatellitefootprintsSkySat1Sep20263_6rule0_eval_expression(context) {
+function exp_SatellitefootprintsSkySat1Sep20263_8rule0_eval_expression(context) {
     // sensor = 'SkySat'
 
     var feature = context.feature;
@@ -796,7 +796,7 @@ function exp_SatellitefootprintsSkySat1Sep20263_6rule0_eval_expression(context) 
 }
 
 
-function exp_SatellitefootprintsSkySat1Sep20262_7rule0_eval_expression(context) {
+function exp_SatellitefootprintsSkySat1Sep20262_9rule0_eval_expression(context) {
     // sensor = 'SkySat'
 
     var feature = context.feature;
@@ -809,7 +809,7 @@ function exp_SatellitefootprintsSkySat1Sep20262_7rule0_eval_expression(context) 
 }
 
 
-function exp_SatellitefootprintsSkySat1Sep20261_8rule0_eval_expression(context) {
+function exp_SatellitefootprintsSkySat1Sep20261_10rule0_eval_expression(context) {
     // sensor = 'SkySat'
 
     var feature = context.feature;
@@ -822,7 +822,7 @@ function exp_SatellitefootprintsSkySat1Sep20261_8rule0_eval_expression(context) 
 }
 
 
-function exp_PlatformTracksSlocumglider_9rule0_eval_expression(context) {
+function exp_PlatformTracksSlocumglider_11rule0_eval_expression(context) {
     // platform = 'slocum'
 
     var feature = context.feature;
@@ -835,7 +835,7 @@ function exp_PlatformTracksSlocumglider_9rule0_eval_expression(context) {
 }
 
 
-function exp_PlatformTracksVessel_10rule0_eval_expression(context) {
+function exp_PlatformTracksVessel_12rule0_eval_expression(context) {
     // platform = 'vessel'
 
     var feature = context.feature;
@@ -848,7 +848,7 @@ function exp_PlatformTracksVessel_10rule0_eval_expression(context) {
 }
 
 
-function exp_PlatformTracksAerialsurvey_11rule0_eval_expression(context) {
+function exp_PlatformTracksAerialsurvey_13rule0_eval_expression(context) {
     // platform = 'plane'
 
     var feature = context.feature;
@@ -861,7 +861,7 @@ function exp_PlatformTracksAerialsurvey_11rule0_eval_expression(context) {
 }
 
 
-function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_12rule0_eval_expression(context) {
+function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_14rule0_eval_expression(context) {
     // platform = 'opportunistic' AND score = 'definite visual'
 
     var feature = context.feature;
@@ -874,7 +874,7 @@ function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_12rule0_eval_exp
 }
 
 
-function exp_WhaleDetectionsVesselsurveydefinitevisual_13rule0_eval_expression(context) {
+function exp_WhaleDetectionsVesselsurveydefinitevisual_15rule0_eval_expression(context) {
     // platform = 'vessel' AND score = 'definite visual'
 
     var feature = context.feature;
@@ -887,7 +887,7 @@ function exp_WhaleDetectionsVesselsurveydefinitevisual_13rule0_eval_expression(c
 }
 
 
-function exp_WhaleDetectionsSlocumgliderpossibleacoustic_14rule0_eval_expression(context) {
+function exp_WhaleDetectionsSlocumgliderpossibleacoustic_16rule0_eval_expression(context) {
     // platform = 'slocum' AND score = 'possible acoustic'
 
     var feature = context.feature;
@@ -900,7 +900,7 @@ function exp_WhaleDetectionsSlocumgliderpossibleacoustic_14rule0_eval_expression
 }
 
 
-function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_15rule0_eval_expression(context) {
+function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_17rule0_eval_expression(context) {
     // platform = 'slocum' AND score = 'definite acoustic'
 
     var feature = context.feature;
@@ -913,7 +913,7 @@ function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_15rule0_eval_expression
 }
 
 
-function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_16rule0_eval_expression(context) {
+function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_18rule0_eval_expression(context) {
     // platform = 'buoy' AND score = 'possible acoustic'
 
     var feature = context.feature;
@@ -926,7 +926,7 @@ function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_16rule0_eval_ex
 }
 
 
-function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_17rule0_eval_expression(context) {
+function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_19rule0_eval_expression(context) {
     // platform = 'buoy' AND score = 'definite acoustic'
 
     var feature = context.feature;
@@ -939,7 +939,7 @@ function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_17rule0_eval_ex
 }
 
 
-function exp_PossibleNARWSatelliteDetectionLow_18rule0_eval_expression(context) {
+function exp_PossibleNARWSatelliteDetectionLow_20rule0_eval_expression(context) {
     // Confidence = 'Low'
 
     var feature = context.feature;
@@ -952,7 +952,7 @@ function exp_PossibleNARWSatelliteDetectionLow_18rule0_eval_expression(context) 
 }
 
 
-function exp_PossibleNARWSatelliteDetectionMedium_19rule0_eval_expression(context) {
+function exp_PossibleNARWSatelliteDetectionMedium_21rule0_eval_expression(context) {
     // Confidence = 'Medium'
 
     var feature = context.feature;
@@ -965,7 +965,7 @@ function exp_PossibleNARWSatelliteDetectionMedium_19rule0_eval_expression(contex
 }
 
 
-function exp_SatellitefootprintsPNEO27Sep20263_24rule0_eval_expression(context) {
+function exp_SatellitefootprintsPNEO27Sep20263_26rule0_eval_expression(context) {
     // sensor = 'PNEO'
 
     var feature = context.feature;
@@ -978,7 +978,7 @@ function exp_SatellitefootprintsPNEO27Sep20263_24rule0_eval_expression(context) 
 }
 
 
-function exp_SatellitefootprintsPNEO27Sep20262_25rule0_eval_expression(context) {
+function exp_SatellitefootprintsPNEO27Sep20262_27rule0_eval_expression(context) {
     // sensor = 'PNEO'
 
     var feature = context.feature;
@@ -991,7 +991,7 @@ function exp_SatellitefootprintsPNEO27Sep20262_25rule0_eval_expression(context) 
 }
 
 
-function exp_SatellitefootprintsPNEO27Sep20261_26rule0_eval_expression(context) {
+function exp_SatellitefootprintsPNEO27Sep20261_28rule0_eval_expression(context) {
     // sensor = 'PNEO'
 
     var feature = context.feature;
@@ -1004,7 +1004,7 @@ function exp_SatellitefootprintsPNEO27Sep20261_26rule0_eval_expression(context) 
 }
 
 
-function exp_SatellitefootprintsSkySat27Sep20264_27rule0_eval_expression(context) {
+function exp_SatellitefootprintsSkySat27Sep20264_29rule0_eval_expression(context) {
     // sensor = 'SkySat'
 
     var feature = context.feature;
@@ -1017,7 +1017,7 @@ function exp_SatellitefootprintsSkySat27Sep20264_27rule0_eval_expression(context
 }
 
 
-function exp_SatellitefootprintsSkySat27Sep20263_28rule0_eval_expression(context) {
+function exp_SatellitefootprintsSkySat27Sep20263_30rule0_eval_expression(context) {
     // sensor = 'SkySat'
 
     var feature = context.feature;
@@ -1030,7 +1030,7 @@ function exp_SatellitefootprintsSkySat27Sep20263_28rule0_eval_expression(context
 }
 
 
-function exp_SatellitefootprintsSkySat27Sep20262_29rule0_eval_expression(context) {
+function exp_SatellitefootprintsSkySat27Sep20262_31rule0_eval_expression(context) {
     // sensor = 'SkySat'
 
     var feature = context.feature;
@@ -1043,7 +1043,7 @@ function exp_SatellitefootprintsSkySat27Sep20262_29rule0_eval_expression(context
 }
 
 
-function exp_SatellitefootprintsSkySat27Sep20261_30rule0_eval_expression(context) {
+function exp_SatellitefootprintsSkySat27Sep20261_32rule0_eval_expression(context) {
     // sensor = 'SkySat'
 
     var feature = context.feature;
@@ -1056,7 +1056,7 @@ function exp_SatellitefootprintsSkySat27Sep20261_30rule0_eval_expression(context
 }
 
 
-function exp_PlatformTracksSlocumglider_31rule0_eval_expression(context) {
+function exp_PlatformTracksSlocumglider_33rule0_eval_expression(context) {
     // platform = 'slocum'
 
     var feature = context.feature;
@@ -1069,7 +1069,7 @@ function exp_PlatformTracksSlocumglider_31rule0_eval_expression(context) {
 }
 
 
-function exp_PlatformTracksBuoy_32rule0_eval_expression(context) {
+function exp_PlatformTracksBuoy_34rule0_eval_expression(context) {
     // platform = 'buoy'
 
     var feature = context.feature;
@@ -1082,7 +1082,7 @@ function exp_PlatformTracksBuoy_32rule0_eval_expression(context) {
 }
 
 
-function exp_PlatformTracksVessel_33rule0_eval_expression(context) {
+function exp_PlatformTracksVessel_35rule0_eval_expression(context) {
     // platform = 'vessel'
 
     var feature = context.feature;
@@ -1095,7 +1095,7 @@ function exp_PlatformTracksVessel_33rule0_eval_expression(context) {
 }
 
 
-function exp_PlatformTracksAerialsurvey_34rule0_eval_expression(context) {
+function exp_PlatformTracksAerialsurvey_36rule0_eval_expression(context) {
     // platform = 'plane'
 
     var feature = context.feature;
@@ -1108,7 +1108,7 @@ function exp_PlatformTracksAerialsurvey_34rule0_eval_expression(context) {
 }
 
 
-function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_35rule0_eval_expression(context) {
+function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_37rule0_eval_expression(context) {
     // platform = 'opportunistic' AND score = 'definite visual'
 
     var feature = context.feature;
@@ -1121,7 +1121,7 @@ function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_35rule0_eval_exp
 }
 
 
-function exp_WhaleDetectionsAerialsurveydefinitevisual_36rule0_eval_expression(context) {
+function exp_WhaleDetectionsAerialsurveydefinitevisual_38rule0_eval_expression(context) {
     // platform = 'plane' AND score = 'definite visual'
 
     var feature = context.feature;
@@ -1134,7 +1134,7 @@ function exp_WhaleDetectionsAerialsurveydefinitevisual_36rule0_eval_expression(c
 }
 
 
-function exp_WhaleDetectionsVesselsurveydefinitevisual_37rule0_eval_expression(context) {
+function exp_WhaleDetectionsVesselsurveydefinitevisual_39rule0_eval_expression(context) {
     // platform = 'vessel' AND score = 'definite visual'
 
     var feature = context.feature;
@@ -1147,7 +1147,7 @@ function exp_WhaleDetectionsVesselsurveydefinitevisual_37rule0_eval_expression(c
 }
 
 
-function exp_WhaleDetectionsSlocumgliderpossibleacoustic_38rule0_eval_expression(context) {
+function exp_WhaleDetectionsSlocumgliderpossibleacoustic_40rule0_eval_expression(context) {
     // platform = 'slocum' AND score = 'possible acoustic'
 
     var feature = context.feature;
@@ -1160,7 +1160,7 @@ function exp_WhaleDetectionsSlocumgliderpossibleacoustic_38rule0_eval_expression
 }
 
 
-function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_39rule0_eval_expression(context) {
+function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_41rule0_eval_expression(context) {
     // platform = 'slocum' AND score = 'definite acoustic'
 
     var feature = context.feature;
@@ -1173,7 +1173,7 @@ function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_39rule0_eval_expression
 }
 
 
-function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_40rule0_eval_expression(context) {
+function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_42rule0_eval_expression(context) {
     // platform = 'buoy' AND score = 'possible acoustic'
 
     var feature = context.feature;
@@ -1186,7 +1186,7 @@ function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_40rule0_eval_ex
 }
 
 
-function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_41rule0_eval_expression(context) {
+function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_43rule0_eval_expression(context) {
     // platform = 'buoy' AND score = 'definite acoustic'
 
     var feature = context.feature;
@@ -1199,7 +1199,7 @@ function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_41rule0_eval_ex
 }
 
 
-function exp_PossibleNARWSatelliteDetectionLow_42rule0_eval_expression(context) {
+function exp_PossibleNARWSatelliteDetectionLow_44rule0_eval_expression(context) {
     // Confidence = 'Low'
 
     var feature = context.feature;
@@ -1212,7 +1212,7 @@ function exp_PossibleNARWSatelliteDetectionLow_42rule0_eval_expression(context) 
 }
 
 
-function exp_PossibleNARWSatelliteDetectionMedium_43rule0_eval_expression(context) {
+function exp_PossibleNARWSatelliteDetectionMedium_45rule0_eval_expression(context) {
     // Confidence = 'Medium'
 
     var feature = context.feature;
