@@ -757,7 +757,7 @@ function fnc_project_color(values, context) {
 
 
 
-function exp_SatellitefootprintsPNEO1Sep2026_6rule0_eval_expression(context) {
+function exp_SatellitefootprintsPNEO1Sep2026_5rule0_eval_expression(context) {
     // sensor = 'PNEO'
 
     var feature = context.feature;
@@ -770,7 +770,7 @@ function exp_SatellitefootprintsPNEO1Sep2026_6rule0_eval_expression(context) {
 }
 
 
-function exp_SatellitefootprintsSkySat9Sep2026_7rule0_eval_expression(context) {
+function exp_SatellitefootprintsSkySat9Sep2026_6rule0_eval_expression(context) {
     // sensor = 'SkySat'
 
     var feature = context.feature;
@@ -783,7 +783,7 @@ function exp_SatellitefootprintsSkySat9Sep2026_7rule0_eval_expression(context) {
 }
 
 
-function exp_SatellitefootprintsSkySat1Sep20263_8rule0_eval_expression(context) {
+function exp_SatellitefootprintsSkySat1Sep20263_7rule0_eval_expression(context) {
     // sensor = 'SkySat'
 
     var feature = context.feature;
@@ -796,7 +796,7 @@ function exp_SatellitefootprintsSkySat1Sep20263_8rule0_eval_expression(context) 
 }
 
 
-function exp_SatellitefootprintsSkySat1Sep20262_9rule0_eval_expression(context) {
+function exp_SatellitefootprintsSkySat1Sep20262_8rule0_eval_expression(context) {
     // sensor = 'SkySat'
 
     var feature = context.feature;
@@ -809,7 +809,7 @@ function exp_SatellitefootprintsSkySat1Sep20262_9rule0_eval_expression(context) 
 }
 
 
-function exp_SatellitefootprintsSkySat1Sep20261_10rule0_eval_expression(context) {
+function exp_SatellitefootprintsSkySat1Sep20261_9rule0_eval_expression(context) {
     // sensor = 'SkySat'
 
     var feature = context.feature;
@@ -822,7 +822,7 @@ function exp_SatellitefootprintsSkySat1Sep20261_10rule0_eval_expression(context)
 }
 
 
-function exp_PlatformTracksSlocumglider_11rule0_eval_expression(context) {
+function exp_PlatformTracksSlocumglider_10rule0_eval_expression(context) {
     // platform = 'slocum'
 
     var feature = context.feature;
@@ -835,7 +835,7 @@ function exp_PlatformTracksSlocumglider_11rule0_eval_expression(context) {
 }
 
 
-function exp_PlatformTracksVessel_12rule0_eval_expression(context) {
+function exp_PlatformTracksVessel_11rule0_eval_expression(context) {
     // platform = 'vessel'
 
     var feature = context.feature;
@@ -848,7 +848,7 @@ function exp_PlatformTracksVessel_12rule0_eval_expression(context) {
 }
 
 
-function exp_PlatformTracksAerialsurvey_13rule0_eval_expression(context) {
+function exp_PlatformTracksAerialsurvey_12rule0_eval_expression(context) {
     // platform = 'plane'
 
     var feature = context.feature;
@@ -861,7 +861,7 @@ function exp_PlatformTracksAerialsurvey_13rule0_eval_expression(context) {
 }
 
 
-function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_14rule0_eval_expression(context) {
+function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_13rule0_eval_expression(context) {
     // platform = 'opportunistic' AND score = 'definite visual'
 
     var feature = context.feature;
@@ -874,7 +874,7 @@ function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_14rule0_eval_exp
 }
 
 
-function exp_WhaleDetectionsVesselsurveydefinitevisual_15rule0_eval_expression(context) {
+function exp_WhaleDetectionsVesselsurveydefinitevisual_14rule0_eval_expression(context) {
     // platform = 'vessel' AND score = 'definite visual'
 
     var feature = context.feature;
@@ -887,7 +887,7 @@ function exp_WhaleDetectionsVesselsurveydefinitevisual_15rule0_eval_expression(c
 }
 
 
-function exp_WhaleDetectionsSlocumgliderpossibleacoustic_16rule0_eval_expression(context) {
+function exp_WhaleDetectionsSlocumgliderpossibleacoustic_15rule0_eval_expression(context) {
     // platform = 'slocum' AND score = 'possible acoustic'
 
     var feature = context.feature;
@@ -900,7 +900,7 @@ function exp_WhaleDetectionsSlocumgliderpossibleacoustic_16rule0_eval_expression
 }
 
 
-function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_17rule0_eval_expression(context) {
+function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_16rule0_eval_expression(context) {
     // platform = 'slocum' AND score = 'definite acoustic'
 
     var feature = context.feature;
@@ -913,7 +913,7 @@ function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_17rule0_eval_expression
 }
 
 
-function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_18rule0_eval_expression(context) {
+function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_17rule0_eval_expression(context) {
     // platform = 'buoy' AND score = 'possible acoustic'
 
     var feature = context.feature;
@@ -926,7 +926,7 @@ function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_18rule0_eval_ex
 }
 
 
-function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_19rule0_eval_expression(context) {
+function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_18rule0_eval_expression(context) {
     // platform = 'buoy' AND score = 'definite acoustic'
 
     var feature = context.feature;
@@ -939,7 +939,7 @@ function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_19rule0_eval_ex
 }
 
 
-function exp_PossibleNARWSatelliteDetectionLow_20rule0_eval_expression(context) {
+function exp_PossibleNARWSatelliteDetectionLow_19rule0_eval_expression(context) {
     // Confidence = 'Low'
 
     var feature = context.feature;
@@ -952,7 +952,7 @@ function exp_PossibleNARWSatelliteDetectionLow_20rule0_eval_expression(context) 
 }
 
 
-function exp_PossibleNARWSatelliteDetectionMedium_21rule0_eval_expression(context) {
+function exp_PossibleNARWSatelliteDetectionMedium_20rule0_eval_expression(context) {
     // Confidence = 'Medium'
 
     var feature = context.feature;
@@ -965,124 +965,7 @@ function exp_PossibleNARWSatelliteDetectionMedium_21rule0_eval_expression(contex
 }
 
 
-function exp_SatellitefootprintsPNEO27Sep20263_26rule0_eval_expression(context) {
-    // sensor = 'PNEO'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.properties['sensor']  == 'PNEO');
-    } else {
-        return (feature['sensor']  == 'PNEO');
-    }
-}
-
-
-function exp_SatellitefootprintsPNEO27Sep20262_27rule0_eval_expression(context) {
-    // sensor = 'PNEO'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.properties['sensor']  == 'PNEO');
-    } else {
-        return (feature['sensor']  == 'PNEO');
-    }
-}
-
-
-function exp_SatellitefootprintsPNEO27Sep20261_28rule0_eval_expression(context) {
-    // sensor = 'PNEO'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.properties['sensor']  == 'PNEO');
-    } else {
-        return (feature['sensor']  == 'PNEO');
-    }
-}
-
-
-function exp_SatellitefootprintsSkySat27Sep20264_29rule0_eval_expression(context) {
-    // sensor = 'SkySat'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.properties['sensor']  == 'SkySat');
-    } else {
-        return (feature['sensor']  == 'SkySat');
-    }
-}
-
-
-function exp_SatellitefootprintsSkySat27Sep20263_30rule0_eval_expression(context) {
-    // sensor = 'SkySat'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.properties['sensor']  == 'SkySat');
-    } else {
-        return (feature['sensor']  == 'SkySat');
-    }
-}
-
-
-function exp_SatellitefootprintsSkySat27Sep20262_31rule0_eval_expression(context) {
-    // sensor = 'SkySat'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.properties['sensor']  == 'SkySat');
-    } else {
-        return (feature['sensor']  == 'SkySat');
-    }
-}
-
-
-function exp_SatellitefootprintsSkySat27Sep20261_32rule0_eval_expression(context) {
-    // sensor = 'SkySat'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.properties['sensor']  == 'SkySat');
-    } else {
-        return (feature['sensor']  == 'SkySat');
-    }
-}
-
-
-function exp_PlatformTracksSlocumglider_33rule0_eval_expression(context) {
-    // platform = 'slocum'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.properties['platform']  == 'slocum');
-    } else {
-        return (feature['platform']  == 'slocum');
-    }
-}
-
-
-function exp_PlatformTracksBuoy_34rule0_eval_expression(context) {
-    // platform = 'buoy'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (feature.properties['platform']  == 'buoy');
-    } else {
-        return (feature['platform']  == 'buoy');
-    }
-}
-
-
-function exp_PlatformTracksVessel_35rule0_eval_expression(context) {
+function exp_PlatformTracksVessel_24rule0_eval_expression(context) {
     // platform = 'vessel'
 
     var feature = context.feature;
@@ -1095,7 +978,7 @@ function exp_PlatformTracksVessel_35rule0_eval_expression(context) {
 }
 
 
-function exp_PlatformTracksAerialsurvey_36rule0_eval_expression(context) {
+function exp_PlatformTracksAerialsurvey_25rule0_eval_expression(context) {
     // platform = 'plane'
 
     var feature = context.feature;
@@ -1108,7 +991,7 @@ function exp_PlatformTracksAerialsurvey_36rule0_eval_expression(context) {
 }
 
 
-function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_37rule0_eval_expression(context) {
+function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_26rule0_eval_expression(context) {
     // platform = 'opportunistic' AND score = 'definite visual'
 
     var feature = context.feature;
@@ -1121,20 +1004,7 @@ function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_37rule0_eval_exp
 }
 
 
-function exp_WhaleDetectionsAerialsurveydefinitevisual_38rule0_eval_expression(context) {
-    // platform = 'plane' AND score = 'definite visual'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return ((feature.properties['platform']  == 'plane') && (feature.properties['score']  == 'definite visual'));
-    } else {
-        return ((feature['platform']  == 'plane') && (feature['score']  == 'definite visual'));
-    }
-}
-
-
-function exp_WhaleDetectionsVesselsurveydefinitevisual_39rule0_eval_expression(context) {
+function exp_WhaleDetectionsVesselsurveydefinitevisual_27rule0_eval_expression(context) {
     // platform = 'vessel' AND score = 'definite visual'
 
     var feature = context.feature;
@@ -1147,7 +1017,7 @@ function exp_WhaleDetectionsVesselsurveydefinitevisual_39rule0_eval_expression(c
 }
 
 
-function exp_WhaleDetectionsSlocumgliderpossibleacoustic_40rule0_eval_expression(context) {
+function exp_WhaleDetectionsSlocumgliderpossibleacoustic_28rule0_eval_expression(context) {
     // platform = 'slocum' AND score = 'possible acoustic'
 
     var feature = context.feature;
@@ -1160,7 +1030,7 @@ function exp_WhaleDetectionsSlocumgliderpossibleacoustic_40rule0_eval_expression
 }
 
 
-function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_41rule0_eval_expression(context) {
+function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_29rule0_eval_expression(context) {
     // platform = 'slocum' AND score = 'definite acoustic'
 
     var feature = context.feature;
@@ -1173,7 +1043,7 @@ function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_41rule0_eval_expression
 }
 
 
-function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_42rule0_eval_expression(context) {
+function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_30rule0_eval_expression(context) {
     // platform = 'buoy' AND score = 'possible acoustic'
 
     var feature = context.feature;
@@ -1186,7 +1056,7 @@ function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_42rule0_eval_ex
 }
 
 
-function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_43rule0_eval_expression(context) {
+function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_31rule0_eval_expression(context) {
     // platform = 'buoy' AND score = 'definite acoustic'
 
     var feature = context.feature;
@@ -1199,7 +1069,241 @@ function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_43rule0_eval_ex
 }
 
 
-function exp_PossibleNARWSatelliteDetectionLow_44rule0_eval_expression(context) {
+function exp_SatellitefootprintsPNEO27Sep20263_36rule0_eval_expression(context) {
+    // sensor = 'PNEO'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['sensor']  == 'PNEO');
+    } else {
+        return (feature['sensor']  == 'PNEO');
+    }
+}
+
+
+function exp_SatellitefootprintsPNEO27Sep20262_37rule0_eval_expression(context) {
+    // sensor = 'PNEO'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['sensor']  == 'PNEO');
+    } else {
+        return (feature['sensor']  == 'PNEO');
+    }
+}
+
+
+function exp_SatellitefootprintsPNEO27Sep20261_38rule0_eval_expression(context) {
+    // sensor = 'PNEO'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['sensor']  == 'PNEO');
+    } else {
+        return (feature['sensor']  == 'PNEO');
+    }
+}
+
+
+function exp_SatellitefootprintsSkySat27Sep20264_39rule0_eval_expression(context) {
+    // sensor = 'SkySat'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['sensor']  == 'SkySat');
+    } else {
+        return (feature['sensor']  == 'SkySat');
+    }
+}
+
+
+function exp_SatellitefootprintsSkySat27Sep20263_40rule0_eval_expression(context) {
+    // sensor = 'SkySat'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['sensor']  == 'SkySat');
+    } else {
+        return (feature['sensor']  == 'SkySat');
+    }
+}
+
+
+function exp_SatellitefootprintsSkySat27Sep20262_41rule0_eval_expression(context) {
+    // sensor = 'SkySat'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['sensor']  == 'SkySat');
+    } else {
+        return (feature['sensor']  == 'SkySat');
+    }
+}
+
+
+function exp_SatellitefootprintsSkySat27Sep20261_42rule0_eval_expression(context) {
+    // sensor = 'SkySat'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['sensor']  == 'SkySat');
+    } else {
+        return (feature['sensor']  == 'SkySat');
+    }
+}
+
+
+function exp_PlatformTracksSlocumglider_43rule0_eval_expression(context) {
+    // platform = 'slocum'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['platform']  == 'slocum');
+    } else {
+        return (feature['platform']  == 'slocum');
+    }
+}
+
+
+function exp_PlatformTracksBuoy_44rule0_eval_expression(context) {
+    // platform = 'buoy'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['platform']  == 'buoy');
+    } else {
+        return (feature['platform']  == 'buoy');
+    }
+}
+
+
+function exp_PlatformTracksVessel_45rule0_eval_expression(context) {
+    // platform = 'vessel'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['platform']  == 'vessel');
+    } else {
+        return (feature['platform']  == 'vessel');
+    }
+}
+
+
+function exp_PlatformTracksAerialsurvey_46rule0_eval_expression(context) {
+    // platform = 'plane'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['platform']  == 'plane');
+    } else {
+        return (feature['platform']  == 'plane');
+    }
+}
+
+
+function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_47rule0_eval_expression(context) {
+    // platform = 'opportunistic' AND score = 'definite visual'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'opportunistic') && (feature.properties['score']  == 'definite visual'));
+    } else {
+        return ((feature['platform']  == 'opportunistic') && (feature['score']  == 'definite visual'));
+    }
+}
+
+
+function exp_WhaleDetectionsAerialsurveydefinitevisual_48rule0_eval_expression(context) {
+    // platform = 'plane' AND score = 'definite visual'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'plane') && (feature.properties['score']  == 'definite visual'));
+    } else {
+        return ((feature['platform']  == 'plane') && (feature['score']  == 'definite visual'));
+    }
+}
+
+
+function exp_WhaleDetectionsVesselsurveydefinitevisual_49rule0_eval_expression(context) {
+    // platform = 'vessel' AND score = 'definite visual'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'vessel') && (feature.properties['score']  == 'definite visual'));
+    } else {
+        return ((feature['platform']  == 'vessel') && (feature['score']  == 'definite visual'));
+    }
+}
+
+
+function exp_WhaleDetectionsSlocumgliderpossibleacoustic_50rule0_eval_expression(context) {
+    // platform = 'slocum' AND score = 'possible acoustic'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'slocum') && (feature.properties['score']  == 'possible acoustic'));
+    } else {
+        return ((feature['platform']  == 'slocum') && (feature['score']  == 'possible acoustic'));
+    }
+}
+
+
+function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_51rule0_eval_expression(context) {
+    // platform = 'slocum' AND score = 'definite acoustic'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'slocum') && (feature.properties['score']  == 'definite acoustic'));
+    } else {
+        return ((feature['platform']  == 'slocum') && (feature['score']  == 'definite acoustic'));
+    }
+}
+
+
+function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_52rule0_eval_expression(context) {
+    // platform = 'buoy' AND score = 'possible acoustic'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'buoy') && (feature.properties['score']  == 'possible acoustic'));
+    } else {
+        return ((feature['platform']  == 'buoy') && (feature['score']  == 'possible acoustic'));
+    }
+}
+
+
+function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_53rule0_eval_expression(context) {
+    // platform = 'buoy' AND score = 'definite acoustic'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'buoy') && (feature.properties['score']  == 'definite acoustic'));
+    } else {
+        return ((feature['platform']  == 'buoy') && (feature['score']  == 'definite acoustic'));
+    }
+}
+
+
+function exp_PossibleNARWSatelliteDetectionLow_54rule0_eval_expression(context) {
     // Confidence = 'Low'
 
     var feature = context.feature;
@@ -1212,7 +1316,7 @@ function exp_PossibleNARWSatelliteDetectionLow_44rule0_eval_expression(context) 
 }
 
 
-function exp_PossibleNARWSatelliteDetectionMedium_45rule0_eval_expression(context) {
+function exp_PossibleNARWSatelliteDetectionMedium_55rule0_eval_expression(context) {
     // Confidence = 'Medium'
 
     var feature = context.feature;
