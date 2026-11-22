@@ -96,7 +96,21 @@
         <script src="data/WhaleDetectionsSlocumgliderpossibleacoustic_68.js"></script>
         <script src="data/PossibleNARWSatelliteDetectionMedium_69.js"></script>
         <script src="data/PossibleNARWSatelliteDetectionHigh_70.js"></script>
-        <script src="data/ZoneA_71.js"></script>
+        <script src="data/SatellitefootprintsSkySat6Nov20262_73.js"></script>
+        <script src="data/SatellitefootprintsSkySat6Nov20261_74.js"></script>
+        <script src="data/PlatformTracksSlocumglider_75.js"></script>
+        <script src="data/PlatformTracksVessel_76.js"></script>
+        <script src="data/PlatformTracksAerialsurvey_77.js"></script>
+        <script src="data/WhaleDetectionsOpportunisticsightingdefinitevisual_78.js"></script>
+        <script src="data/WhaleDetectionsAerialsurveydefinitevisual_79.js"></script>
+        <script src="data/WhaleDetectionsVesselsurveydefinitevisual_80.js"></script>
+        <script src="data/WhaleDetectionsSlocumgliderpossibleacoustic_81.js"></script>
+        <script src="data/WhaleDetectionsSlocumgliderdefiniteacoustic_82.js"></script>
+        <script src="data/WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83.js"></script>
+        <script src="data/WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84.js"></script>
+        <script src="data/PossibleNARWSatelliteDetectionMedium_85.js"></script>
+        <script src="data/PossibleNARWSatelliteDetectionHigh_86.js"></script>
+        <script src="data/ZoneA_87.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -105,7 +119,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:18, minZoom:1
-        }).fitBounds([[46.10156588260179,-65.99961238691392],[53.807170882315646,-62.86053105425597]]);
+        }).fitBounds([[43.9212900548637,-64.35886076486062],[51.84772719919604,-61.39558250302305]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -1432,14 +1446,6 @@
                         <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">source_image</th>\
-                        <td>' + (feature.properties['source_image'] !== null ? autolinker.link(String(feature.properties['source_image']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">image_date</th>\
-                        <td>' + (feature.properties['image_date'] !== null ? autolinker.link(String(feature.properties['image_date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">length_meters</th>\
                         <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -1540,14 +1546,6 @@
                     <tr>\
                         <th scope="row">target_type</th>\
                         <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">source_image</th>\
-                        <td>' + (feature.properties['source_image'] !== null ? autolinker.link(String(feature.properties['source_image']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">image_date</th>\
-                        <td>' + (feature.properties['image_date'] !== null ? autolinker.link(String(feature.properties['image_date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">length_meters</th>\
@@ -4107,14 +4105,6 @@
                         <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">source_image</th>\
-                        <td>' + (feature.properties['source_image'] !== null ? autolinker.link(String(feature.properties['source_image']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">image_date</th>\
-                        <td>' + (feature.properties['image_date'] !== null ? autolinker.link(String(feature.properties['image_date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">length_meters</th>\
                         <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -4215,14 +4205,6 @@
                     <tr>\
                         <th scope="row">target_type</th>\
                         <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">source_image</th>\
-                        <td>' + (feature.properties['source_image'] !== null ? autolinker.link(String(feature.properties['source_image']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">image_date</th>\
-                        <td>' + (feature.properties['image_date'] !== null ? autolinker.link(String(feature.properties['image_date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">length_meters</th>\
@@ -5155,14 +5137,6 @@
                         <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">source_image</th>\
-                        <td>' + (feature.properties['source_image'] !== null ? autolinker.link(String(feature.properties['source_image']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">image_date</th>\
-                        <td>' + (feature.properties['image_date'] !== null ? autolinker.link(String(feature.properties['image_date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">length_meters</th>\
                         <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -5265,14 +5239,6 @@
                         <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">source_image</th>\
-                        <td>' + (feature.properties['source_image'] !== null ? autolinker.link(String(feature.properties['source_image']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">image_date</th>\
-                        <td>' + (feature.properties['image_date'] !== null ? autolinker.link(String(feature.properties['image_date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">length_meters</th>\
                         <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -5352,7 +5318,1282 @@
             },
         });
         bounds_group.addLayer(layer_PossibleNARWSatelliteDetectionHigh_70);
-        function pop_ZoneA_71(feature, layer) {
+        map.createPane('pane_RCM5Nov2026_71');
+        map.getPane('pane_RCM5Nov2026_71').style.zIndex = 471;
+        var img_RCM5Nov2026_71 = 'data/RCM5Nov2026_71.png';
+        var img_bounds_RCM5Nov2026_71 = [[46.92006065931285,-63.85940216656496],[48.33108380576986,-61.83979542355134]];
+        var layer_RCM5Nov2026_71 = new L.imageOverlay(img_RCM5Nov2026_71,
+                                              img_bounds_RCM5Nov2026_71,
+                                              {pane: 'pane_RCM5Nov2026_71'});
+        bounds_group.addLayer(layer_RCM5Nov2026_71);
+        map.createPane('pane_RCM6Nov2026_72');
+        map.getPane('pane_RCM6Nov2026_72').style.zIndex = 472;
+        var img_RCM6Nov2026_72 = 'data/RCM6Nov2026_72.png';
+        var img_bounds_RCM6Nov2026_72 = [[47.19071933402139,-63.65426982268535],[47.73434125837961,-62.753211504838845]];
+        var layer_RCM6Nov2026_72 = new L.imageOverlay(img_RCM6Nov2026_72,
+                                              img_bounds_RCM6Nov2026_72,
+                                              {pane: 'pane_RCM6Nov2026_72'});
+        bounds_group.addLayer(layer_RCM6Nov2026_72);
+        function pop_SatellitefootprintsSkySat6Nov20262_73(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">sensor</th>\
+                        <td>' + (feature.properties['sensor'] !== null ? autolinker.link(String(feature.properties['sensor']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_SatellitefootprintsSkySat6Nov20262_73_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_SatellitefootprintsSkySat6Nov20262_73rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_SatellitefootprintsSkySat6Nov20262_73',
+                opacity: 1,
+                color: 'rgba(49,172,239,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_SatellitefootprintsSkySat6Nov20262_73');
+        map.getPane('pane_SatellitefootprintsSkySat6Nov20262_73').style.zIndex = 473;
+        map.getPane('pane_SatellitefootprintsSkySat6Nov20262_73').style['mix-blend-mode'] = 'normal';
+        var layer_SatellitefootprintsSkySat6Nov20262_73 = new L.geoJson(json_SatellitefootprintsSkySat6Nov20262_73, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_SatellitefootprintsSkySat6Nov20262_73',
+            layerName: 'layer_SatellitefootprintsSkySat6Nov20262_73',
+            pane: 'pane_SatellitefootprintsSkySat6Nov20262_73',
+            onEachFeature: pop_SatellitefootprintsSkySat6Nov20262_73,
+            style: style_SatellitefootprintsSkySat6Nov20262_73_0,
+        });
+        bounds_group.addLayer(layer_SatellitefootprintsSkySat6Nov20262_73);
+        function pop_SatellitefootprintsSkySat6Nov20261_74(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">sensor</th>\
+                        <td>' + (feature.properties['sensor'] !== null ? autolinker.link(String(feature.properties['sensor']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_SatellitefootprintsSkySat6Nov20261_74_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_SatellitefootprintsSkySat6Nov20261_74rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_SatellitefootprintsSkySat6Nov20261_74',
+                opacity: 1,
+                color: 'rgba(49,172,239,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_SatellitefootprintsSkySat6Nov20261_74');
+        map.getPane('pane_SatellitefootprintsSkySat6Nov20261_74').style.zIndex = 474;
+        map.getPane('pane_SatellitefootprintsSkySat6Nov20261_74').style['mix-blend-mode'] = 'normal';
+        var layer_SatellitefootprintsSkySat6Nov20261_74 = new L.geoJson(json_SatellitefootprintsSkySat6Nov20261_74, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_SatellitefootprintsSkySat6Nov20261_74',
+            layerName: 'layer_SatellitefootprintsSkySat6Nov20261_74',
+            pane: 'pane_SatellitefootprintsSkySat6Nov20261_74',
+            onEachFeature: pop_SatellitefootprintsSkySat6Nov20261_74,
+            style: style_SatellitefootprintsSkySat6Nov20261_74_0,
+        });
+        bounds_group.addLayer(layer_SatellitefootprintsSkySat6Nov20261_74);
+        function pop_PlatformTracksSlocumglider_75(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_PlatformTracksSlocumglider_75_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_PlatformTracksSlocumglider_75rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_PlatformTracksSlocumglider_75',
+                opacity: 1,
+                color: 'rgba(31,71,136,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_PlatformTracksSlocumglider_75');
+        map.getPane('pane_PlatformTracksSlocumglider_75').style.zIndex = 475;
+        map.getPane('pane_PlatformTracksSlocumglider_75').style['mix-blend-mode'] = 'normal';
+        var layer_PlatformTracksSlocumglider_75 = new L.geoJson(json_PlatformTracksSlocumglider_75, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PlatformTracksSlocumglider_75',
+            layerName: 'layer_PlatformTracksSlocumglider_75',
+            pane: 'pane_PlatformTracksSlocumglider_75',
+            onEachFeature: pop_PlatformTracksSlocumglider_75,
+            style: style_PlatformTracksSlocumglider_75_0,
+        });
+        bounds_group.addLayer(layer_PlatformTracksSlocumglider_75);
+        function pop_PlatformTracksVessel_76(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_PlatformTracksVessel_76_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_PlatformTracksVessel_76rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_PlatformTracksVessel_76',
+                opacity: 1,
+                color: 'rgba(26,26,26,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_PlatformTracksVessel_76');
+        map.getPane('pane_PlatformTracksVessel_76').style.zIndex = 476;
+        map.getPane('pane_PlatformTracksVessel_76').style['mix-blend-mode'] = 'normal';
+        var layer_PlatformTracksVessel_76 = new L.geoJson(json_PlatformTracksVessel_76, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PlatformTracksVessel_76',
+            layerName: 'layer_PlatformTracksVessel_76',
+            pane: 'pane_PlatformTracksVessel_76',
+            onEachFeature: pop_PlatformTracksVessel_76,
+            style: style_PlatformTracksVessel_76_0,
+        });
+        bounds_group.addLayer(layer_PlatformTracksVessel_76);
+        function pop_PlatformTracksAerialsurvey_77(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_PlatformTracksAerialsurvey_77_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_PlatformTracksAerialsurvey_77rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_PlatformTracksAerialsurvey_77',
+                opacity: 1,
+                color: 'rgba(201,168,118,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_PlatformTracksAerialsurvey_77');
+        map.getPane('pane_PlatformTracksAerialsurvey_77').style.zIndex = 477;
+        map.getPane('pane_PlatformTracksAerialsurvey_77').style['mix-blend-mode'] = 'normal';
+        var layer_PlatformTracksAerialsurvey_77 = new L.geoJson(json_PlatformTracksAerialsurvey_77, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PlatformTracksAerialsurvey_77',
+            layerName: 'layer_PlatformTracksAerialsurvey_77',
+            pane: 'pane_PlatformTracksAerialsurvey_77',
+            onEachFeature: pop_PlatformTracksAerialsurvey_77,
+            style: style_PlatformTracksAerialsurvey_77_0,
+        });
+        bounds_group.addLayer(layer_PlatformTracksAerialsurvey_77);
+        function pop_WhaleDetectionsOpportunisticsightingdefinitevisual_78(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">lat</th>\
+                        <td>' + (feature.properties['lat'] !== null ? autolinker.link(String(feature.properties['lat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">lon</th>\
+                        <td>' + (feature.properties['lon'] !== null ? autolinker.link(String(feature.properties['lon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">species</th>\
+                        <td>' + (feature.properties['species'] !== null ? autolinker.link(String(feature.properties['species']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">score</th>\
+                        <td>' + (feature.properties['score'] !== null ? autolinker.link(String(feature.properties['score']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">number</th>\
+                        <td>' + (feature.properties['number'] !== null ? autolinker.link(String(feature.properties['number']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">calves</th>\
+                        <td>' + (feature.properties['calves'] !== null ? autolinker.link(String(feature.properties['calves']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_WhaleDetectionsOpportunisticsightingdefinitevisual_78_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_WhaleDetectionsOpportunisticsightingdefinitevisual_78rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetectionsOpportunisticsightingdefinitevisual_78',
+                shape: 'diamond',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(140,140,140,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_WhaleDetectionsOpportunisticsightingdefinitevisual_78');
+        map.getPane('pane_WhaleDetectionsOpportunisticsightingdefinitevisual_78').style.zIndex = 478;
+        map.getPane('pane_WhaleDetectionsOpportunisticsightingdefinitevisual_78').style['mix-blend-mode'] = 'normal';
+        var layer_WhaleDetectionsOpportunisticsightingdefinitevisual_78 = new L.geoJson(json_WhaleDetectionsOpportunisticsightingdefinitevisual_78, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_WhaleDetectionsOpportunisticsightingdefinitevisual_78',
+            layerName: 'layer_WhaleDetectionsOpportunisticsightingdefinitevisual_78',
+            pane: 'pane_WhaleDetectionsOpportunisticsightingdefinitevisual_78',
+            onEachFeature: pop_WhaleDetectionsOpportunisticsightingdefinitevisual_78,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_WhaleDetectionsOpportunisticsightingdefinitevisual_78_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_WhaleDetectionsOpportunisticsightingdefinitevisual_78);
+        function pop_WhaleDetectionsAerialsurveydefinitevisual_79(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">lat</th>\
+                        <td>' + (feature.properties['lat'] !== null ? autolinker.link(String(feature.properties['lat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">lon</th>\
+                        <td>' + (feature.properties['lon'] !== null ? autolinker.link(String(feature.properties['lon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">species</th>\
+                        <td>' + (feature.properties['species'] !== null ? autolinker.link(String(feature.properties['species']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">score</th>\
+                        <td>' + (feature.properties['score'] !== null ? autolinker.link(String(feature.properties['score']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">number</th>\
+                        <td>' + (feature.properties['number'] !== null ? autolinker.link(String(feature.properties['number']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">calves</th>\
+                        <td>' + (feature.properties['calves'] !== null ? autolinker.link(String(feature.properties['calves']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_WhaleDetectionsAerialsurveydefinitevisual_79_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_WhaleDetectionsAerialsurveydefinitevisual_79rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetectionsAerialsurveydefinitevisual_79',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(140,140,140,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_WhaleDetectionsAerialsurveydefinitevisual_79');
+        map.getPane('pane_WhaleDetectionsAerialsurveydefinitevisual_79').style.zIndex = 479;
+        map.getPane('pane_WhaleDetectionsAerialsurveydefinitevisual_79').style['mix-blend-mode'] = 'normal';
+        var layer_WhaleDetectionsAerialsurveydefinitevisual_79 = new L.geoJson(json_WhaleDetectionsAerialsurveydefinitevisual_79, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_WhaleDetectionsAerialsurveydefinitevisual_79',
+            layerName: 'layer_WhaleDetectionsAerialsurveydefinitevisual_79',
+            pane: 'pane_WhaleDetectionsAerialsurveydefinitevisual_79',
+            onEachFeature: pop_WhaleDetectionsAerialsurveydefinitevisual_79,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_WhaleDetectionsAerialsurveydefinitevisual_79_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_WhaleDetectionsAerialsurveydefinitevisual_79);
+        function pop_WhaleDetectionsVesselsurveydefinitevisual_80(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">lat</th>\
+                        <td>' + (feature.properties['lat'] !== null ? autolinker.link(String(feature.properties['lat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">lon</th>\
+                        <td>' + (feature.properties['lon'] !== null ? autolinker.link(String(feature.properties['lon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">species</th>\
+                        <td>' + (feature.properties['species'] !== null ? autolinker.link(String(feature.properties['species']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">score</th>\
+                        <td>' + (feature.properties['score'] !== null ? autolinker.link(String(feature.properties['score']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">number</th>\
+                        <td>' + (feature.properties['number'] !== null ? autolinker.link(String(feature.properties['number']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">calves</th>\
+                        <td>' + (feature.properties['calves'] !== null ? autolinker.link(String(feature.properties['calves']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_WhaleDetectionsVesselsurveydefinitevisual_80_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_WhaleDetectionsVesselsurveydefinitevisual_80rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetectionsVesselsurveydefinitevisual_80',
+                shape: 'square',
+                radius: 3.6,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(140,140,140,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_WhaleDetectionsVesselsurveydefinitevisual_80');
+        map.getPane('pane_WhaleDetectionsVesselsurveydefinitevisual_80').style.zIndex = 480;
+        map.getPane('pane_WhaleDetectionsVesselsurveydefinitevisual_80').style['mix-blend-mode'] = 'normal';
+        var layer_WhaleDetectionsVesselsurveydefinitevisual_80 = new L.geoJson(json_WhaleDetectionsVesselsurveydefinitevisual_80, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_WhaleDetectionsVesselsurveydefinitevisual_80',
+            layerName: 'layer_WhaleDetectionsVesselsurveydefinitevisual_80',
+            pane: 'pane_WhaleDetectionsVesselsurveydefinitevisual_80',
+            onEachFeature: pop_WhaleDetectionsVesselsurveydefinitevisual_80,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_WhaleDetectionsVesselsurveydefinitevisual_80_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_WhaleDetectionsVesselsurveydefinitevisual_80);
+        function pop_WhaleDetectionsSlocumgliderpossibleacoustic_81(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">lat</th>\
+                        <td>' + (feature.properties['lat'] !== null ? autolinker.link(String(feature.properties['lat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">lon</th>\
+                        <td>' + (feature.properties['lon'] !== null ? autolinker.link(String(feature.properties['lon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">species</th>\
+                        <td>' + (feature.properties['species'] !== null ? autolinker.link(String(feature.properties['species']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">score</th>\
+                        <td>' + (feature.properties['score'] !== null ? autolinker.link(String(feature.properties['score']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">number</th>\
+                        <td>' + (feature.properties['number'] !== null ? autolinker.link(String(feature.properties['number']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">calves</th>\
+                        <td>' + (feature.properties['calves'] !== null ? autolinker.link(String(feature.properties['calves']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_WhaleDetectionsSlocumgliderpossibleacoustic_81_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_WhaleDetectionsSlocumgliderpossibleacoustic_81rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetectionsSlocumgliderpossibleacoustic_81',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,209,26,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_WhaleDetectionsSlocumgliderpossibleacoustic_81');
+        map.getPane('pane_WhaleDetectionsSlocumgliderpossibleacoustic_81').style.zIndex = 481;
+        map.getPane('pane_WhaleDetectionsSlocumgliderpossibleacoustic_81').style['mix-blend-mode'] = 'normal';
+        var layer_WhaleDetectionsSlocumgliderpossibleacoustic_81 = new L.geoJson(json_WhaleDetectionsSlocumgliderpossibleacoustic_81, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_WhaleDetectionsSlocumgliderpossibleacoustic_81',
+            layerName: 'layer_WhaleDetectionsSlocumgliderpossibleacoustic_81',
+            pane: 'pane_WhaleDetectionsSlocumgliderpossibleacoustic_81',
+            onEachFeature: pop_WhaleDetectionsSlocumgliderpossibleacoustic_81,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_WhaleDetectionsSlocumgliderpossibleacoustic_81_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_WhaleDetectionsSlocumgliderpossibleacoustic_81);
+        function pop_WhaleDetectionsSlocumgliderdefiniteacoustic_82(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">lat</th>\
+                        <td>' + (feature.properties['lat'] !== null ? autolinker.link(String(feature.properties['lat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">lon</th>\
+                        <td>' + (feature.properties['lon'] !== null ? autolinker.link(String(feature.properties['lon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">species</th>\
+                        <td>' + (feature.properties['species'] !== null ? autolinker.link(String(feature.properties['species']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">score</th>\
+                        <td>' + (feature.properties['score'] !== null ? autolinker.link(String(feature.properties['score']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">number</th>\
+                        <td>' + (feature.properties['number'] !== null ? autolinker.link(String(feature.properties['number']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">calves</th>\
+                        <td>' + (feature.properties['calves'] !== null ? autolinker.link(String(feature.properties['calves']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_WhaleDetectionsSlocumgliderdefiniteacoustic_82_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_WhaleDetectionsSlocumgliderdefiniteacoustic_82rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetectionsSlocumgliderdefiniteacoustic_82',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,40,40,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_WhaleDetectionsSlocumgliderdefiniteacoustic_82');
+        map.getPane('pane_WhaleDetectionsSlocumgliderdefiniteacoustic_82').style.zIndex = 482;
+        map.getPane('pane_WhaleDetectionsSlocumgliderdefiniteacoustic_82').style['mix-blend-mode'] = 'normal';
+        var layer_WhaleDetectionsSlocumgliderdefiniteacoustic_82 = new L.geoJson(json_WhaleDetectionsSlocumgliderdefiniteacoustic_82, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_WhaleDetectionsSlocumgliderdefiniteacoustic_82',
+            layerName: 'layer_WhaleDetectionsSlocumgliderdefiniteacoustic_82',
+            pane: 'pane_WhaleDetectionsSlocumgliderdefiniteacoustic_82',
+            onEachFeature: pop_WhaleDetectionsSlocumgliderdefiniteacoustic_82,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_WhaleDetectionsSlocumgliderdefiniteacoustic_82_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_WhaleDetectionsSlocumgliderdefiniteacoustic_82);
+        function pop_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">lat</th>\
+                        <td>' + (feature.properties['lat'] !== null ? autolinker.link(String(feature.properties['lat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">lon</th>\
+                        <td>' + (feature.properties['lon'] !== null ? autolinker.link(String(feature.properties['lon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">species</th>\
+                        <td>' + (feature.properties['species'] !== null ? autolinker.link(String(feature.properties['species']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">score</th>\
+                        <td>' + (feature.properties['score'] !== null ? autolinker.link(String(feature.properties['score']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">number</th>\
+                        <td>' + (feature.properties['number'] !== null ? autolinker.link(String(feature.properties['number']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">calves</th>\
+                        <td>' + (feature.properties['calves'] !== null ? autolinker.link(String(feature.properties['calves']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83',
+                shape: 'triangle',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,209,26,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83');
+        map.getPane('pane_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83').style.zIndex = 483;
+        map.getPane('pane_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83').style['mix-blend-mode'] = 'normal';
+        var layer_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83 = new L.geoJson(json_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83',
+            layerName: 'layer_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83',
+            pane: 'pane_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83',
+            onEachFeature: pop_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83);
+        function pop_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">lat</th>\
+                        <td>' + (feature.properties['lat'] !== null ? autolinker.link(String(feature.properties['lat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">lon</th>\
+                        <td>' + (feature.properties['lon'] !== null ? autolinker.link(String(feature.properties['lon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">species</th>\
+                        <td>' + (feature.properties['species'] !== null ? autolinker.link(String(feature.properties['species']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">score</th>\
+                        <td>' + (feature.properties['score'] !== null ? autolinker.link(String(feature.properties['score']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">number</th>\
+                        <td>' + (feature.properties['number'] !== null ? autolinker.link(String(feature.properties['number']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">calves</th>\
+                        <td>' + (feature.properties['calves'] !== null ? autolinker.link(String(feature.properties['calves']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">platform</th>\
+                        <td>' + (feature.properties['platform'] !== null ? autolinker.link(String(feature.properties['platform']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">date</th>\
+                        <td>' + (feature.properties['date'] !== null ? autolinker.link(String(feature.properties['date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84',
+                shape: 'triangle',
+                radius: 4.4,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,40,40,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84');
+        map.getPane('pane_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84').style.zIndex = 484;
+        map.getPane('pane_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84').style['mix-blend-mode'] = 'normal';
+        var layer_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84 = new L.geoJson(json_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84',
+            layerName: 'layer_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84',
+            pane: 'pane_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84',
+            onEachFeature: pop_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84);
+        function pop_PossibleNARWSatelliteDetectionMedium_85(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Confidence</th>\
+                        <td>' + (feature.properties['Confidence'] !== null ? autolinker.link(String(feature.properties['Confidence']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">target_type</th>\
+                        <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">length_meters</th>\
+                        <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(String(feature.properties['notes']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['chip'] !== null ? '<img src="images/' + String(feature.properties['chip']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PNEO · 27 Sep 2026</th>\
+                        <td>' + (feature.properties['chip_pneo20260927blue'] !== null ? '<img src="images/' + String(feature.properties['chip_pneo20260927blue']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SkySat · 27 Sep</th>\
+                        <td>' + (feature.properties['chip_skysat_27_sept_0001'] !== null ? '<img src="images/' + String(feature.properties['chip_skysat_27_sept_0001']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">latitude</th>\
+                        <td>' + (feature.properties['latitude'] !== null ? autolinker.link(String(feature.properties['latitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">longitude</th>\
+                        <td>' + (feature.properties['longitude'] !== null ? autolinker.link(String(feature.properties['longitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_PossibleNARWSatelliteDetectionMedium_85_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_PossibleNARWSatelliteDetectionMedium_85rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_PossibleNARWSatelliteDetectionMedium_85',
+                shape: 'x',
+                radius: 5.2,
+                opacity: 1,
+                color: 'rgba(255,209,26,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,209,26,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_PossibleNARWSatelliteDetectionMedium_85');
+        map.getPane('pane_PossibleNARWSatelliteDetectionMedium_85').style.zIndex = 485;
+        map.getPane('pane_PossibleNARWSatelliteDetectionMedium_85').style['mix-blend-mode'] = 'normal';
+        var layer_PossibleNARWSatelliteDetectionMedium_85 = new L.geoJson(json_PossibleNARWSatelliteDetectionMedium_85, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PossibleNARWSatelliteDetectionMedium_85',
+            layerName: 'layer_PossibleNARWSatelliteDetectionMedium_85',
+            pane: 'pane_PossibleNARWSatelliteDetectionMedium_85',
+            onEachFeature: pop_PossibleNARWSatelliteDetectionMedium_85,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_PossibleNARWSatelliteDetectionMedium_85_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_PossibleNARWSatelliteDetectionMedium_85);
+        function pop_PossibleNARWSatelliteDetectionHigh_86(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Confidence</th>\
+                        <td>' + (feature.properties['Confidence'] !== null ? autolinker.link(String(feature.properties['Confidence']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">target_type</th>\
+                        <td class="visible-with-data" id="target_type">' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">length_meters</th>\
+                        <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">notes</th>\
+                        <td>' + (feature.properties['notes'] !== null ? autolinker.link(String(feature.properties['notes']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['chip'] !== null ? '<img src="images/' + String(feature.properties['chip']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PNEO · 27 Sep 2026</th>\
+                        <td>' + (feature.properties['chip_pneo20260927blue'] !== null ? '<img src="images/' + String(feature.properties['chip_pneo20260927blue']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SkySat · 27 Sep</th>\
+                        <td>' + (feature.properties['chip_skysat_27_sept_0001'] !== null ? '<img src="images/' + String(feature.properties['chip_skysat_27_sept_0001']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">latitude</th>\
+                        <td>' + (feature.properties['latitude'] !== null ? autolinker.link(String(feature.properties['latitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">longitude</th>\
+                        <td>' + (feature.properties['longitude'] !== null ? autolinker.link(String(feature.properties['longitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+        function style_PossibleNARWSatelliteDetectionHigh_86_0(feature) {
+            var context = {
+                feature: feature,
+                variables: {}
+            };
+            // Start of if blocks and style check logic
+            if (exp_PossibleNARWSatelliteDetectionHigh_86rule0_eval_expression(context)) {
+                  return {
+                pane: 'pane_PossibleNARWSatelliteDetectionHigh_86',
+                shape: 'x',
+                radius: 5.2,
+                opacity: 1,
+                color: 'rgba(214,40,40,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,209,26,1.0)',
+                interactive: true,
+            };
+                }
+            else {
+                return {fill: false, stroke: false};
+            }
+        }
+        map.createPane('pane_PossibleNARWSatelliteDetectionHigh_86');
+        map.getPane('pane_PossibleNARWSatelliteDetectionHigh_86').style.zIndex = 486;
+        map.getPane('pane_PossibleNARWSatelliteDetectionHigh_86').style['mix-blend-mode'] = 'normal';
+        var layer_PossibleNARWSatelliteDetectionHigh_86 = new L.geoJson(json_PossibleNARWSatelliteDetectionHigh_86, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PossibleNARWSatelliteDetectionHigh_86',
+            layerName: 'layer_PossibleNARWSatelliteDetectionHigh_86',
+            pane: 'pane_PossibleNARWSatelliteDetectionHigh_86',
+            onEachFeature: pop_PossibleNARWSatelliteDetectionHigh_86,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_PossibleNARWSatelliteDetectionHigh_86_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_PossibleNARWSatelliteDetectionHigh_86);
+        function pop_ZoneA_87(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -5374,9 +6615,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_ZoneA_71_0() {
+        function style_ZoneA_87_0() {
             return {
-                pane: 'pane_ZoneA_71',
+                pane: 'pane_ZoneA_87',
                 opacity: 1,
                 color: 'rgba(170,56,48,1.0)',
                 dashArray: '',
@@ -5387,23 +6628,44 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_ZoneA_71');
-        map.getPane('pane_ZoneA_71').style.zIndex = 471;
-        map.getPane('pane_ZoneA_71').style['mix-blend-mode'] = 'normal';
-        var layer_ZoneA_71 = new L.geoJson(json_ZoneA_71, {
+        map.createPane('pane_ZoneA_87');
+        map.getPane('pane_ZoneA_87').style.zIndex = 487;
+        map.getPane('pane_ZoneA_87').style['mix-blend-mode'] = 'normal';
+        var layer_ZoneA_87 = new L.geoJson(json_ZoneA_87, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_ZoneA_71',
-            layerName: 'layer_ZoneA_71',
-            pane: 'pane_ZoneA_71',
-            onEachFeature: pop_ZoneA_71,
-            style: style_ZoneA_71_0,
+            dataVar: 'json_ZoneA_87',
+            layerName: 'layer_ZoneA_87',
+            pane: 'pane_ZoneA_87',
+            onEachFeature: pop_ZoneA_87,
+            style: style_ZoneA_87_0,
         });
-        bounds_group.addLayer(layer_ZoneA_71);
-        map.addLayer(layer_ZoneA_71);
+        bounds_group.addLayer(layer_ZoneA_87);
+        map.addLayer(layer_ZoneA_87);
         var overlaysTree = [
         {label: '<b>Shipping Zones</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/ZoneA_71.png" /> Zone A', layer: layer_ZoneA_71},]},
+            {label: '<img src="legend/ZoneA_87.png" /> Zone A', layer: layer_ZoneA_87},]},
+        {label: '<b>Oct 23 – Nov 6 · NARW candidates</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: 'Possible NARW Satellite Detection · High<br /><table><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetectionHigh_86_HighConfidence0.png" /></td><td>High Confidence</td></tr></table>', layer: layer_PossibleNARWSatelliteDetectionHigh_86},
+            {label: 'Possible NARW Satellite Detection · Medium<br /><table><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetectionMedium_85_MediumConfidence0.png" /></td><td>Medium Confidence</td></tr></table>', layer: layer_PossibleNARWSatelliteDetectionMedium_85},]},
+        {label: '<b>Oct 23 – Nov 6 · Whale detections</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: 'Whale Detections · Buoy (moored hydrophone) - definite acoustic<br /><table><tr><td style="text-align: center;"><img src="legend/WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84_Buoymooredhydrophonedefiniteacoustic0.png" /></td><td>Buoy (moored hydrophone) - definite acoustic</td></tr></table>', layer: layer_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84},
+            {label: 'Whale Detections · Buoy (moored hydrophone) - possible acoustic<br /><table><tr><td style="text-align: center;"><img src="legend/WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83_Buoymooredhydrophonepossibleacoustic0.png" /></td><td>Buoy (moored hydrophone) - possible acoustic</td></tr></table>', layer: layer_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83},
+            {label: 'Whale Detections · Slocum glider - definite acoustic<br /><table><tr><td style="text-align: center;"><img src="legend/WhaleDetectionsSlocumgliderdefiniteacoustic_82_Slocumgliderdefiniteacoustic0.png" /></td><td>Slocum glider - definite acoustic</td></tr></table>', layer: layer_WhaleDetectionsSlocumgliderdefiniteacoustic_82},
+            {label: 'Whale Detections · Slocum glider - possible acoustic<br /><table><tr><td style="text-align: center;"><img src="legend/WhaleDetectionsSlocumgliderpossibleacoustic_81_Slocumgliderpossibleacoustic0.png" /></td><td>Slocum glider - possible acoustic</td></tr></table>', layer: layer_WhaleDetectionsSlocumgliderpossibleacoustic_81},
+            {label: 'Whale Detections · Vessel survey - definite visual<br /><table><tr><td style="text-align: center;"><img src="legend/WhaleDetectionsVesselsurveydefinitevisual_80_Vesselsurveydefinitevisual0.png" /></td><td>Vessel survey - definite visual</td></tr></table>', layer: layer_WhaleDetectionsVesselsurveydefinitevisual_80},
+            {label: 'Whale Detections · Aerial survey - definite visual<br /><table><tr><td style="text-align: center;"><img src="legend/WhaleDetectionsAerialsurveydefinitevisual_79_Aerialsurveydefinitevisual0.png" /></td><td>Aerial survey - definite visual</td></tr></table>', layer: layer_WhaleDetectionsAerialsurveydefinitevisual_79},
+            {label: 'Whale Detections · Opportunistic sighting - definite visual<br /><table><tr><td style="text-align: center;"><img src="legend/WhaleDetectionsOpportunisticsightingdefinitevisual_78_Opportunisticsightingdefinitevisual0.png" /></td><td>Opportunistic sighting - definite visual</td></tr></table>', layer: layer_WhaleDetectionsOpportunisticsightingdefinitevisual_78},]},
+        {label: '<b>Oct 23 – Nov 6 · Platform tracks</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: 'Platform Tracks · Aerial survey<br /><table><tr><td style="text-align: center;"><img src="legend/PlatformTracksAerialsurvey_77_Aerialsurvey0.png" /></td><td>Aerial survey</td></tr></table>', layer: layer_PlatformTracksAerialsurvey_77},
+            {label: 'Platform Tracks · Vessel<br /><table><tr><td style="text-align: center;"><img src="legend/PlatformTracksVessel_76_Vessel0.png" /></td><td>Vessel</td></tr></table>', layer: layer_PlatformTracksVessel_76},
+            {label: 'Platform Tracks · Slocum glider<br /><table><tr><td style="text-align: center;"><img src="legend/PlatformTracksSlocumglider_75_Slocumglider0.png" /></td><td>Slocum glider</td></tr></table>', layer: layer_PlatformTracksSlocumglider_75},]},
+        {label: '<b>Oct 23 – Nov 6 · SkySat footprints</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: 'Satellite footprints · SkySat 6 Nov 2026 (1)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsSkySat6Nov20261_74_6Nov202610.png" /></td><td>6 Nov 2026 (1)</td></tr></table>', layer: layer_SatellitefootprintsSkySat6Nov20261_74},
+            {label: 'Satellite footprints · SkySat 6 Nov 2026 (2)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsSkySat6Nov20262_73_6Nov202620.png" /></td><td>6 Nov 2026 (2)</td></tr></table>', layer: layer_SatellitefootprintsSkySat6Nov20262_73},]},
+        {label: '<b>Oct 23 – Nov 6 · RCM imagery</b>', collapsed: true, selectAllCheckbox: true, children: [
+            {label: "RCM 6 Nov 2026", layer: layer_RCM6Nov2026_72},
+            {label: "RCM 5 Nov 2026", layer: layer_RCM5Nov2026_71},]},
         {label: '<b>Oct 1 – 22 · NARW candidates</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: 'Possible NARW Satellite Detection · High<br /><table><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetectionHigh_70_HighConfidence0.png" /></td><td>High Confidence</td></tr></table>', layer: layer_PossibleNARWSatelliteDetectionHigh_70},
             {label: 'Possible NARW Satellite Detection · Medium<br /><table><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetectionMedium_69_MediumConfidence0.png" /></td><td>Medium Confidence</td></tr></table>', layer: layer_PossibleNARWSatelliteDetectionMedium_69},]},
@@ -5483,12 +6745,12 @@
             {label: 'Platform Tracks · Aerial survey<br /><table><tr><td style="text-align: center;"><img src="legend/PlatformTracksAerialsurvey_12_Aerialsurvey0.png" /></td><td>Aerial survey</td></tr></table>', layer: layer_PlatformTracksAerialsurvey_12},
             {label: 'Platform Tracks · Vessel<br /><table><tr><td style="text-align: center;"><img src="legend/PlatformTracksVessel_11_Vessel0.png" /></td><td>Vessel</td></tr></table>', layer: layer_PlatformTracksVessel_11},
             {label: 'Platform Tracks · Slocum glider<br /><table><tr><td style="text-align: center;"><img src="legend/PlatformTracksSlocumglider_10_Slocumglider0.png" /></td><td>Slocum glider</td></tr></table>', layer: layer_PlatformTracksSlocumglider_10},]},
-        {label: '<b>Aug 30 – Sept 9 · SkySat footprints</b>', collapsed: true, selectAllCheckbox: true, children: [
+        {label: '<b>Aug 30 – Sept 9 · SkySat footprints</b>',  selectAllCheckbox: true, children: [
             {label: 'Satellite footprints · SkySat 1 Sep 2026 (1)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsSkySat1Sep20261_9_1Sep202610.png" /></td><td>1 Sep 2026 (1)</td></tr></table>', layer: layer_SatellitefootprintsSkySat1Sep20261_9},
             {label: 'Satellite footprints · SkySat 1 Sep 2026 (2)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsSkySat1Sep20262_8_1Sep202620.png" /></td><td>1 Sep 2026 (2)</td></tr></table>', layer: layer_SatellitefootprintsSkySat1Sep20262_8},
             {label: 'Satellite footprints · SkySat 1 Sep 2026 (3)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsSkySat1Sep20263_7_1Sep202630.png" /></td><td>1 Sep 2026 (3)</td></tr></table>', layer: layer_SatellitefootprintsSkySat1Sep20263_7},
             {label: 'Satellite footprints · SkySat 9 Sep 2026<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsSkySat9Sep2026_6_9Sep20260.png" /></td><td>9 Sep 2026</td></tr></table>', layer: layer_SatellitefootprintsSkySat9Sep2026_6},]},
-        {label: '<b>Aug 30 – Sept 9 · PNEO footprints</b>', collapsed: true, selectAllCheckbox: true, children: [
+        {label: '<b>Aug 30 – Sept 9 · PNEO footprints</b>',  selectAllCheckbox: true, children: [
             {label: 'Satellite footprints · PNEO 1 Sep 2026<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsPNEO1Sep2026_5_1Sep20260.png" /></td><td>1 Sep 2026</td></tr></table>', layer: layer_SatellitefootprintsPNEO1Sep2026_5},]},
         {label: '<b>Aug 30 – Sept 9 · RCM imagery</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: "RCM 7 Sep 2026", layer: layer_RCM7Sep2026_4},

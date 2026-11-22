@@ -1483,3 +1483,185 @@ function exp_PossibleNARWSatelliteDetectionHigh_70rule0_eval_expression(context)
         return (feature['Confidence']  == 'High');
     }
 }
+
+
+function exp_SatellitefootprintsSkySat6Nov20262_73rule0_eval_expression(context) {
+    // sensor = 'SkySat'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['sensor']  == 'SkySat');
+    } else {
+        return (feature['sensor']  == 'SkySat');
+    }
+}
+
+
+function exp_SatellitefootprintsSkySat6Nov20261_74rule0_eval_expression(context) {
+    // sensor = 'SkySat'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['sensor']  == 'SkySat');
+    } else {
+        return (feature['sensor']  == 'SkySat');
+    }
+}
+
+
+function exp_PlatformTracksSlocumglider_75rule0_eval_expression(context) {
+    // platform = 'slocum'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['platform']  == 'slocum');
+    } else {
+        return (feature['platform']  == 'slocum');
+    }
+}
+
+
+function exp_PlatformTracksVessel_76rule0_eval_expression(context) {
+    // platform = 'vessel'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['platform']  == 'vessel');
+    } else {
+        return (feature['platform']  == 'vessel');
+    }
+}
+
+
+function exp_PlatformTracksAerialsurvey_77rule0_eval_expression(context) {
+    // platform = 'plane'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['platform']  == 'plane');
+    } else {
+        return (feature['platform']  == 'plane');
+    }
+}
+
+
+function exp_WhaleDetectionsOpportunisticsightingdefinitevisual_78rule0_eval_expression(context) {
+    // platform = 'opportunistic' AND score = 'definite visual'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'opportunistic') && (feature.properties['score']  == 'definite visual'));
+    } else {
+        return ((feature['platform']  == 'opportunistic') && (feature['score']  == 'definite visual'));
+    }
+}
+
+
+function exp_WhaleDetectionsAerialsurveydefinitevisual_79rule0_eval_expression(context) {
+    // platform = 'plane' AND score = 'definite visual'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'plane') && (feature.properties['score']  == 'definite visual'));
+    } else {
+        return ((feature['platform']  == 'plane') && (feature['score']  == 'definite visual'));
+    }
+}
+
+
+function exp_WhaleDetectionsVesselsurveydefinitevisual_80rule0_eval_expression(context) {
+    // platform = 'vessel' AND score = 'definite visual'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'vessel') && (feature.properties['score']  == 'definite visual'));
+    } else {
+        return ((feature['platform']  == 'vessel') && (feature['score']  == 'definite visual'));
+    }
+}
+
+
+function exp_WhaleDetectionsSlocumgliderpossibleacoustic_81rule0_eval_expression(context) {
+    // platform = 'slocum' AND score = 'possible acoustic'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'slocum') && (feature.properties['score']  == 'possible acoustic'));
+    } else {
+        return ((feature['platform']  == 'slocum') && (feature['score']  == 'possible acoustic'));
+    }
+}
+
+
+function exp_WhaleDetectionsSlocumgliderdefiniteacoustic_82rule0_eval_expression(context) {
+    // platform = 'slocum' AND score = 'definite acoustic'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'slocum') && (feature.properties['score']  == 'definite acoustic'));
+    } else {
+        return ((feature['platform']  == 'slocum') && (feature['score']  == 'definite acoustic'));
+    }
+}
+
+
+function exp_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83rule0_eval_expression(context) {
+    // platform = 'buoy' AND score = 'possible acoustic'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'buoy') && (feature.properties['score']  == 'possible acoustic'));
+    } else {
+        return ((feature['platform']  == 'buoy') && (feature['score']  == 'possible acoustic'));
+    }
+}
+
+
+function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84rule0_eval_expression(context) {
+    // platform = 'buoy' AND score = 'definite acoustic'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return ((feature.properties['platform']  == 'buoy') && (feature.properties['score']  == 'definite acoustic'));
+    } else {
+        return ((feature['platform']  == 'buoy') && (feature['score']  == 'definite acoustic'));
+    }
+}
+
+
+function exp_PossibleNARWSatelliteDetectionMedium_85rule0_eval_expression(context) {
+    // Confidence = 'Medium'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['Confidence']  == 'Medium');
+    } else {
+        return (feature['Confidence']  == 'Medium');
+    }
+}
+
+
+function exp_PossibleNARWSatelliteDetectionHigh_86rule0_eval_expression(context) {
+    // Confidence = 'High'
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['Confidence']  == 'High');
+    } else {
+        return (feature['Confidence']  == 'High');
+    }
+}
