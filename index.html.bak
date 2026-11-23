@@ -115,11 +115,22 @@
         var highlightLayer;
         function highlightFeature(e) {
             highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString' || e.target.feature.geometry.type === 'MultiLineString') {
+              highlightLayer.setStyle({
+                color: 'rgba(255, 255, 0, 1.00)',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: 'rgba(255, 255, 0, 1.00)',
+                fillOpacity: 1
+              });
+            }
             highlightLayer.openPopup();
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:18, minZoom:1
-        }).fitBounds([[43.9212900548637,-64.35886076486062],[51.84772719919604,-61.39558250302305]]);
+        }).fitBounds([[46.838533639684655,-63.698176770619725],[48.35708646029116,-62.95735720516039]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -267,6 +278,11 @@
         function pop_SatellitefootprintsPNEO1Sep2026_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -333,6 +349,11 @@
         function pop_SatellitefootprintsSkySat9Sep2026_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -399,6 +420,11 @@
         function pop_SatellitefootprintsSkySat1Sep20263_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -465,6 +491,11 @@
         function pop_SatellitefootprintsSkySat1Sep20262_8(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -531,6 +562,11 @@
         function pop_SatellitefootprintsSkySat1Sep20261_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -597,6 +633,11 @@
         function pop_PlatformTracksSlocumglider_10(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -666,6 +707,11 @@
         function pop_PlatformTracksVessel_11(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -735,6 +781,11 @@
         function pop_PlatformTracksAerialsurvey_12(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -804,6 +855,11 @@
         function pop_WhaleDetectionsOpportunisticsightingdefinitevisual_13(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -908,6 +964,11 @@
         function pop_WhaleDetectionsVesselsurveydefinitevisual_14(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1012,6 +1073,11 @@
         function pop_WhaleDetectionsSlocumgliderpossibleacoustic_15(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1115,6 +1181,11 @@
         function pop_WhaleDetectionsSlocumgliderdefiniteacoustic_16(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1218,6 +1289,11 @@
         function pop_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_17(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1322,6 +1398,11 @@
         function pop_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_18(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1426,6 +1507,11 @@
         function pop_PossibleNARWSatelliteDetectionLow_19(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1469,7 +1555,8 @@
                         <td>' + (feature.properties['chip_pneo20260927blue'] !== null ? '<img src="images/' + String(feature.properties['chip_pneo20260927blue']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>SkySat · 27 Sep</strong><br />' + (feature.properties['chip_skysat_27_sept_0001'] !== null ? '<img src="images/' + String(feature.properties['chip_skysat_27_sept_0001']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                        <th scope="row">SkySat · 27 Sep</th>\
+                        <td>' + (feature.properties['chip_skysat_27_sept_0001'] !== null ? '<img src="images/' + String(feature.properties['chip_skysat_27_sept_0001']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1528,6 +1615,11 @@
         function pop_PossibleNARWSatelliteDetectionMedium_20(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1567,10 +1659,12 @@
                         <td>' + (feature.properties['longitude'] !== null ? autolinker.link(String(feature.properties['longitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>PNEO · 27 Sep 2026</strong><br />' + (feature.properties['chip_pneo20260927blue'] !== null ? '<img src="images/' + String(feature.properties['chip_pneo20260927blue']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                        <th scope="row">PNEO · 27 Sep 2026</th>\
+                        <td>' + (feature.properties['chip_pneo20260927blue'] !== null ? '<img src="images/' + String(feature.properties['chip_pneo20260927blue']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>SkySat · 27 Sep</strong><br />' + (feature.properties['chip_skysat_27_sept_0001'] !== null ? '<img src="images/' + String(feature.properties['chip_skysat_27_sept_0001']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                        <th scope="row">SkySat · 27 Sep</th>\
+                        <td>' + (feature.properties['chip_skysat_27_sept_0001'] !== null ? '<img src="images/' + String(feature.properties['chip_skysat_27_sept_0001']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1629,6 +1723,11 @@
         function pop_CopepodSampling12Sept2026_21(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1640,62 +1739,6 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">descriptio</th>\
-                        <td>' + (feature.properties['descriptio'] !== null ? autolinker.link(String(feature.properties['descriptio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">timestamp</th>\
-                        <td>' + (feature.properties['timestamp'] !== null ? autolinker.link(String(feature.properties['timestamp']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">begin</th>\
-                        <td>' + (feature.properties['begin'] !== null ? autolinker.link(String(feature.properties['begin']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">end</th>\
-                        <td>' + (feature.properties['end'] !== null ? autolinker.link(String(feature.properties['end']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">altitudeMo</th>\
-                        <td>' + (feature.properties['altitudeMo'] !== null ? autolinker.link(String(feature.properties['altitudeMo']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">tessellate</th>\
-                        <td>' + (feature.properties['tessellate'] !== null ? autolinker.link(String(feature.properties['tessellate']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">extrude</th>\
-                        <td>' + (feature.properties['extrude'] !== null ? autolinker.link(String(feature.properties['extrude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">visibility</th>\
-                        <td>' + (feature.properties['visibility'] !== null ? autolinker.link(String(feature.properties['visibility']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">drawOrder</th>\
-                        <td>' + (feature.properties['drawOrder'] !== null ? autolinker.link(String(feature.properties['drawOrder']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">icon</th>\
-                        <td>' + (feature.properties['icon'] !== null ? autolinker.link(String(feature.properties['icon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">chip_pneo2</th>\
-                        <td>' + (feature.properties['chip_pneo2'] !== null ? autolinker.link(String(feature.properties['chip_pneo2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">chip_skysa</th>\
-                        <td>' + (feature.properties['chip_skysa'] !== null ? autolinker.link(String(feature.properties['chip_skysa']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">chip</th>\
-                        <td>' + (feature.properties['chip'] !== null ? autolinker.link(String(feature.properties['chip']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -1742,6 +1785,11 @@
         function pop_BoatTracks12Sept2026_22(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1842,6 +1890,11 @@
         function pop_PlatformTracksVessel_24(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1911,6 +1964,11 @@
         function pop_PlatformTracksAerialsurvey_25(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1980,6 +2038,11 @@
         function pop_WhaleDetectionsOpportunisticsightingdefinitevisual_26(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2083,6 +2146,11 @@
         function pop_WhaleDetectionsVesselsurveydefinitevisual_27(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2186,6 +2254,11 @@
         function pop_WhaleDetectionsSlocumgliderpossibleacoustic_28(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2288,6 +2361,11 @@
         function pop_WhaleDetectionsSlocumgliderdefiniteacoustic_29(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2390,6 +2468,11 @@
         function pop_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_30(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2493,6 +2576,11 @@
         function pop_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_31(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2636,6 +2724,11 @@
         function pop_SatellitefootprintsPNEO27Sep20263_37(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2701,6 +2794,11 @@
         function pop_SatellitefootprintsPNEO27Sep20262_38(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2766,6 +2864,11 @@
         function pop_SatellitefootprintsPNEO27Sep20261_39(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2831,6 +2934,11 @@
         function pop_SatellitefootprintsSkySat27Sep20264_40(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2896,6 +3004,11 @@
         function pop_SatellitefootprintsSkySat27Sep20263_41(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2961,6 +3074,11 @@
         function pop_SatellitefootprintsSkySat27Sep20262_42(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3026,6 +3144,11 @@
         function pop_SatellitefootprintsSkySat27Sep20261_43(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3091,6 +3214,11 @@
         function pop_PlatformTracksSlocumglider_44(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3113,6 +3241,10 @@
                     <tr>\
                         <th scope="row">name</th>\
                         <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">length_km</th>\
+                        <td>' + (feature.properties['length_km'] !== null ? autolinker.link(String(feature.properties['length_km']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -3160,6 +3292,11 @@
         function pop_PlatformTracksBuoy_45(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3229,6 +3366,11 @@
         function pop_PlatformTracksVessel_46(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3251,6 +3393,10 @@
                     <tr>\
                         <th scope="row">name</th>\
                         <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">length_km</th>\
+                        <td>' + (feature.properties['length_km'] !== null ? autolinker.link(String(feature.properties['length_km']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -3298,6 +3444,11 @@
         function pop_PlatformTracksAerialsurvey_47(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3367,6 +3518,11 @@
         function pop_WhaleDetectionsOpportunisticsightingdefinitevisual_48(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3470,6 +3626,11 @@
         function pop_WhaleDetectionsAerialsurveydefinitevisual_49(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3572,6 +3733,11 @@
         function pop_WhaleDetectionsVesselsurveydefinitevisual_50(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3675,6 +3841,11 @@
         function pop_WhaleDetectionsSlocumgliderpossibleacoustic_51(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3777,6 +3948,11 @@
         function pop_WhaleDetectionsSlocumgliderdefiniteacoustic_52(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3879,6 +4055,11 @@
         function pop_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_53(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3982,6 +4163,11 @@
         function pop_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_54(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4085,6 +4271,11 @@
         function pop_PossibleNARWSatelliteDetectionLow_55(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4187,6 +4378,11 @@
         function pop_PossibleNARWSatelliteDetectionMedium_56(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4305,6 +4501,11 @@
         function pop_SatellitefootprintsSkySat21Oct20263_59(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4370,6 +4571,11 @@
         function pop_SatellitefootprintsSkySat21Oct20262_60(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4435,6 +4641,11 @@
         function pop_SatellitefootprintsSkySat21Oct20261_61(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4500,6 +4711,11 @@
         function pop_PlatformTracksSlocumglider_62(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4569,6 +4785,11 @@
         function pop_PlatformTracksVessel_63(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4638,6 +4859,11 @@
         function pop_PlatformTracksAerialsurvey_64(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4707,6 +4933,11 @@
         function pop_WhaleDetectionsOpportunisticsightingdefinitevisual_65(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4810,6 +5041,11 @@
         function pop_WhaleDetectionsAerialsurveydefinitevisual_66(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4912,6 +5148,11 @@
         function pop_WhaleDetectionsVesselsurveydefinitevisual_67(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5015,6 +5256,11 @@
         function pop_WhaleDetectionsSlocumgliderpossibleacoustic_68(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5117,6 +5363,11 @@
         function pop_PossibleNARWSatelliteDetectionMedium_69(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5219,6 +5470,11 @@
         function pop_PossibleNARWSatelliteDetectionHigh_70(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5250,12 +5506,10 @@
                         <td colspan="2">' + (feature.properties['chip'] !== null ? '<img src="images/' + String(feature.properties['chip']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">PNEO · 27 Sep 2026</th>\
-                        <td>' + (feature.properties['chip_pneo20260927blue'] !== null ? '<img src="images/' + String(feature.properties['chip_pneo20260927blue']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                        <td colspan="2"><strong>PNEO · 27 Sep 2026</strong><br />' + (feature.properties['chip_pneo20260927blue'] !== null ? '<img src="images/' + String(feature.properties['chip_pneo20260927blue']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">SkySat · 27 Sep</th>\
-                        <td>' + (feature.properties['chip_skysat_27_sept_0001'] !== null ? '<img src="images/' + String(feature.properties['chip_skysat_27_sept_0001']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                        <td colspan="2"><strong>SkySat · 27 Sep</strong><br />' + (feature.properties['chip_skysat_27_sept_0001'] !== null ? '<img src="images/' + String(feature.properties['chip_skysat_27_sept_0001']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">latitude</th>\
@@ -5337,6 +5591,11 @@
         function pop_SatellitefootprintsSkySat6Nov20262_73(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5402,6 +5661,11 @@
         function pop_SatellitefootprintsSkySat6Nov20261_74(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5467,6 +5731,11 @@
         function pop_PlatformTracksSlocumglider_75(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5536,6 +5805,11 @@
         function pop_PlatformTracksVessel_76(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5605,6 +5879,11 @@
         function pop_PlatformTracksAerialsurvey_77(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5674,6 +5953,11 @@
         function pop_WhaleDetectionsOpportunisticsightingdefinitevisual_78(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5777,6 +6061,11 @@
         function pop_WhaleDetectionsAerialsurveydefinitevisual_79(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5879,6 +6168,11 @@
         function pop_WhaleDetectionsVesselsurveydefinitevisual_80(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5982,6 +6276,11 @@
         function pop_WhaleDetectionsSlocumgliderpossibleacoustic_81(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6084,6 +6383,11 @@
         function pop_WhaleDetectionsSlocumgliderdefiniteacoustic_82(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6186,6 +6490,11 @@
         function pop_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6289,6 +6598,11 @@
         function pop_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6392,6 +6706,11 @@
         function pop_PossibleNARWSatelliteDetectionMedium_85(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6494,6 +6813,11 @@
         function pop_PossibleNARWSatelliteDetectionHigh_86(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6511,7 +6835,7 @@
                     </tr>\
                     <tr>\
                         <th scope="row">target_type</th>\
-                        <td class="visible-with-data" id="target_type">' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">length_meters</th>\
@@ -6596,6 +6920,11 @@
         function pop_ZoneA_87(feature, layer) {
             layer.on({
                 mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6745,12 +7074,12 @@
             {label: 'Platform Tracks · Aerial survey<br /><table><tr><td style="text-align: center;"><img src="legend/PlatformTracksAerialsurvey_12_Aerialsurvey0.png" /></td><td>Aerial survey</td></tr></table>', layer: layer_PlatformTracksAerialsurvey_12},
             {label: 'Platform Tracks · Vessel<br /><table><tr><td style="text-align: center;"><img src="legend/PlatformTracksVessel_11_Vessel0.png" /></td><td>Vessel</td></tr></table>', layer: layer_PlatformTracksVessel_11},
             {label: 'Platform Tracks · Slocum glider<br /><table><tr><td style="text-align: center;"><img src="legend/PlatformTracksSlocumglider_10_Slocumglider0.png" /></td><td>Slocum glider</td></tr></table>', layer: layer_PlatformTracksSlocumglider_10},]},
-        {label: '<b>Aug 30 – Sept 9 · SkySat footprints</b>',  selectAllCheckbox: true, children: [
+        {label: '<b>Aug 30 – Sept 9 · SkySat footprints</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: 'Satellite footprints · SkySat 1 Sep 2026 (1)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsSkySat1Sep20261_9_1Sep202610.png" /></td><td>1 Sep 2026 (1)</td></tr></table>', layer: layer_SatellitefootprintsSkySat1Sep20261_9},
             {label: 'Satellite footprints · SkySat 1 Sep 2026 (2)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsSkySat1Sep20262_8_1Sep202620.png" /></td><td>1 Sep 2026 (2)</td></tr></table>', layer: layer_SatellitefootprintsSkySat1Sep20262_8},
             {label: 'Satellite footprints · SkySat 1 Sep 2026 (3)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsSkySat1Sep20263_7_1Sep202630.png" /></td><td>1 Sep 2026 (3)</td></tr></table>', layer: layer_SatellitefootprintsSkySat1Sep20263_7},
             {label: 'Satellite footprints · SkySat 9 Sep 2026<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsSkySat9Sep2026_6_9Sep20260.png" /></td><td>9 Sep 2026</td></tr></table>', layer: layer_SatellitefootprintsSkySat9Sep2026_6},]},
-        {label: '<b>Aug 30 – Sept 9 · PNEO footprints</b>',  selectAllCheckbox: true, children: [
+        {label: '<b>Aug 30 – Sept 9 · PNEO footprints</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: 'Satellite footprints · PNEO 1 Sep 2026<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsPNEO1Sep2026_5_1Sep20260.png" /></td><td>1 Sep 2026</td></tr></table>', layer: layer_SatellitefootprintsPNEO1Sep2026_5},]},
         {label: '<b>Aug 30 – Sept 9 · RCM imagery</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: "RCM 7 Sep 2026", layer: layer_RCM7Sep2026_4},
