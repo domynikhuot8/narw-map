@@ -1641,27 +1641,27 @@ function exp_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84rule0_eval_ex
 }
 
 
-function exp_PossibleNARWSatelliteDetectionMedium_85rule0_eval_expression(context) {
-    // Confidence = 'Medium'
+function exp_PossibleNARWSatelliteDetectionpotentialcallosity_85rule0_eval_expression(context) {
+    // 1 = 1
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return (feature.properties['Confidence']  == 'Medium');
+        return (1 == 1);
     } else {
-        return (feature['Confidence']  == 'Medium');
+        return (1 == 1);
     }
 }
 
 
-function exp_PossibleNARWSatelliteDetectionHigh_86rule0_eval_expression(context) {
-    // Confidence = 'High'
+function exp_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86rule0_eval_expression(context) {
+    // 1 = 1
 
     var feature = context.feature;
     
     if (feature.properties) {
-        return (feature.properties['Confidence']  == 'High');
+        return (1 == 1);
     } else {
-        return (feature['Confidence']  == 'High');
+        return (1 == 1);
     }
 }

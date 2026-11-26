@@ -108,29 +108,18 @@
         <script src="data/WhaleDetectionsSlocumgliderdefiniteacoustic_82.js"></script>
         <script src="data/WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83.js"></script>
         <script src="data/WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84.js"></script>
-        <script src="data/PossibleNARWSatelliteDetectionMedium_85.js"></script>
-        <script src="data/PossibleNARWSatelliteDetectionHigh_86.js"></script>
+        <script src="data/PossibleNARWSatelliteDetectionpotentialcallosity_85.js"></script>
+        <script src="data/PossibleNARWSatelliteDetectionisolatedlengthcallosity_86.js"></script>
         <script src="data/ZoneA_87.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
             highlightLayer = e.target;
-
-            if (e.target.feature.geometry.type === 'LineString' || e.target.feature.geometry.type === 'MultiLineString') {
-              highlightLayer.setStyle({
-                color: 'rgba(255, 255, 0, 1.00)',
-              });
-            } else {
-              highlightLayer.setStyle({
-                fillColor: 'rgba(255, 255, 0, 1.00)',
-                fillOpacity: 1
-              });
-            }
             highlightLayer.openPopup();
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:18, minZoom:1
-        }).fitBounds([[46.838533639684655,-63.698176770619725],[48.35708646029116,-62.95735720516039]]);
+        }).fitBounds([[47.351752122888925,-63.3416380142149],[47.64708971406448,-63.22875122328778]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -278,11 +267,6 @@
         function pop_SatellitefootprintsPNEO1Sep2026_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -349,11 +333,6 @@
         function pop_SatellitefootprintsSkySat9Sep2026_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -420,11 +399,6 @@
         function pop_SatellitefootprintsSkySat1Sep20263_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -491,11 +465,6 @@
         function pop_SatellitefootprintsSkySat1Sep20262_8(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -562,11 +531,6 @@
         function pop_SatellitefootprintsSkySat1Sep20261_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -633,11 +597,6 @@
         function pop_PlatformTracksSlocumglider_10(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -707,11 +666,6 @@
         function pop_PlatformTracksVessel_11(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -781,11 +735,6 @@
         function pop_PlatformTracksAerialsurvey_12(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -855,11 +804,6 @@
         function pop_WhaleDetectionsOpportunisticsightingdefinitevisual_13(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -964,11 +908,6 @@
         function pop_WhaleDetectionsVesselsurveydefinitevisual_14(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1073,11 +1012,6 @@
         function pop_WhaleDetectionsSlocumgliderpossibleacoustic_15(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1181,11 +1115,6 @@
         function pop_WhaleDetectionsSlocumgliderdefiniteacoustic_16(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1289,11 +1218,6 @@
         function pop_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_17(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1398,11 +1322,6 @@
         function pop_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_18(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1507,11 +1426,6 @@
         function pop_PossibleNARWSatelliteDetectionLow_19(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1526,14 +1440,6 @@
                     <tr>\
                         <th scope="row">Confidence</th>\
                         <td>' + (feature.properties['Confidence'] !== null ? autolinker.link(String(feature.properties['Confidence']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">target_type</th>\
-                        <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">length_meters</th>\
-                        <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">notes</th>\
@@ -1615,11 +1521,6 @@
         function pop_PossibleNARWSatelliteDetectionMedium_20(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1634,14 +1535,6 @@
                     <tr>\
                         <th scope="row">Confidence</th>\
                         <td>' + (feature.properties['Confidence'] !== null ? autolinker.link(String(feature.properties['Confidence']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">target_type</th>\
-                        <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">length_meters</th>\
-                        <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">notes</th>\
@@ -1723,11 +1616,6 @@
         function pop_CopepodSampling12Sept2026_21(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1785,11 +1673,6 @@
         function pop_BoatTracks12Sept2026_22(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1890,11 +1773,6 @@
         function pop_PlatformTracksVessel_24(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -1964,11 +1842,6 @@
         function pop_PlatformTracksAerialsurvey_25(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2038,11 +1911,6 @@
         function pop_WhaleDetectionsOpportunisticsightingdefinitevisual_26(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2146,11 +2014,6 @@
         function pop_WhaleDetectionsVesselsurveydefinitevisual_27(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2254,11 +2117,6 @@
         function pop_WhaleDetectionsSlocumgliderpossibleacoustic_28(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2361,11 +2219,6 @@
         function pop_WhaleDetectionsSlocumgliderdefiniteacoustic_29(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2468,11 +2321,6 @@
         function pop_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_30(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2576,11 +2424,6 @@
         function pop_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_31(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2724,11 +2567,6 @@
         function pop_SatellitefootprintsPNEO27Sep20263_37(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2794,11 +2632,6 @@
         function pop_SatellitefootprintsPNEO27Sep20262_38(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2864,11 +2697,6 @@
         function pop_SatellitefootprintsPNEO27Sep20261_39(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -2934,11 +2762,6 @@
         function pop_SatellitefootprintsSkySat27Sep20264_40(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3004,11 +2827,6 @@
         function pop_SatellitefootprintsSkySat27Sep20263_41(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3074,11 +2892,6 @@
         function pop_SatellitefootprintsSkySat27Sep20262_42(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3144,11 +2957,6 @@
         function pop_SatellitefootprintsSkySat27Sep20261_43(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3214,11 +3022,6 @@
         function pop_PlatformTracksSlocumglider_44(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3241,10 +3044,6 @@
                     <tr>\
                         <th scope="row">name</th>\
                         <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">length_km</th>\
-                        <td>' + (feature.properties['length_km'] !== null ? autolinker.link(String(feature.properties['length_km']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -3292,11 +3091,6 @@
         function pop_PlatformTracksBuoy_45(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3366,11 +3160,6 @@
         function pop_PlatformTracksVessel_46(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3393,10 +3182,6 @@
                     <tr>\
                         <th scope="row">name</th>\
                         <td>' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">length_km</th>\
-                        <td>' + (feature.properties['length_km'] !== null ? autolinker.link(String(feature.properties['length_km']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -3444,11 +3229,6 @@
         function pop_PlatformTracksAerialsurvey_47(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3518,11 +3298,6 @@
         function pop_WhaleDetectionsOpportunisticsightingdefinitevisual_48(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3626,11 +3401,6 @@
         function pop_WhaleDetectionsAerialsurveydefinitevisual_49(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3733,11 +3503,6 @@
         function pop_WhaleDetectionsVesselsurveydefinitevisual_50(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3841,11 +3606,6 @@
         function pop_WhaleDetectionsSlocumgliderpossibleacoustic_51(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -3948,11 +3708,6 @@
         function pop_WhaleDetectionsSlocumgliderdefiniteacoustic_52(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4055,11 +3810,6 @@
         function pop_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_53(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4163,11 +3913,6 @@
         function pop_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_54(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4271,11 +4016,6 @@
         function pop_PossibleNARWSatelliteDetectionLow_55(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4290,14 +4030,6 @@
                     <tr>\
                         <th scope="row">Confidence</th>\
                         <td>' + (feature.properties['Confidence'] !== null ? autolinker.link(String(feature.properties['Confidence']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">target_type</th>\
-                        <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">length_meters</th>\
-                        <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">notes</th>\
@@ -4378,11 +4110,6 @@
         function pop_PossibleNARWSatelliteDetectionMedium_56(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4397,14 +4124,6 @@
                     <tr>\
                         <th scope="row">Confidence</th>\
                         <td>' + (feature.properties['Confidence'] !== null ? autolinker.link(String(feature.properties['Confidence']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">target_type</th>\
-                        <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">length_meters</th>\
-                        <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">notes</th>\
@@ -4501,11 +4220,6 @@
         function pop_SatellitefootprintsSkySat21Oct20263_59(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4571,11 +4285,6 @@
         function pop_SatellitefootprintsSkySat21Oct20262_60(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4641,11 +4350,6 @@
         function pop_SatellitefootprintsSkySat21Oct20261_61(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4711,11 +4415,6 @@
         function pop_PlatformTracksSlocumglider_62(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4785,11 +4484,6 @@
         function pop_PlatformTracksVessel_63(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4859,11 +4553,6 @@
         function pop_PlatformTracksAerialsurvey_64(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -4933,11 +4622,6 @@
         function pop_WhaleDetectionsOpportunisticsightingdefinitevisual_65(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5041,11 +4725,6 @@
         function pop_WhaleDetectionsAerialsurveydefinitevisual_66(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5148,11 +4827,6 @@
         function pop_WhaleDetectionsVesselsurveydefinitevisual_67(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5256,11 +4930,6 @@
         function pop_WhaleDetectionsSlocumgliderpossibleacoustic_68(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5363,11 +5032,6 @@
         function pop_PossibleNARWSatelliteDetectionMedium_69(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5382,14 +5046,6 @@
                     <tr>\
                         <th scope="row">Confidence</th>\
                         <td>' + (feature.properties['Confidence'] !== null ? autolinker.link(String(feature.properties['Confidence']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">target_type</th>\
-                        <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">length_meters</th>\
-                        <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">notes</th>\
@@ -5470,11 +5126,6 @@
         function pop_PossibleNARWSatelliteDetectionHigh_70(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5491,14 +5142,6 @@
                         <td>' + (feature.properties['Confidence'] !== null ? autolinker.link(String(feature.properties['Confidence']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">target_type</th>\
-                        <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">length_meters</th>\
-                        <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">notes</th>\
                         <td>' + (feature.properties['notes'] !== null ? autolinker.link(String(feature.properties['notes']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -5506,10 +5149,12 @@
                         <td colspan="2">' + (feature.properties['chip'] !== null ? '<img src="images/' + String(feature.properties['chip']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>PNEO · 27 Sep 2026</strong><br />' + (feature.properties['chip_pneo20260927blue'] !== null ? '<img src="images/' + String(feature.properties['chip_pneo20260927blue']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                        <th scope="row">PNEO · 27 Sep 2026</th>\
+                        <td>' + (feature.properties['chip_pneo20260927blue'] !== null ? '<img src="images/' + String(feature.properties['chip_pneo20260927blue']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>SkySat · 27 Sep</strong><br />' + (feature.properties['chip_skysat_27_sept_0001'] !== null ? '<img src="images/' + String(feature.properties['chip_skysat_27_sept_0001']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
+                        <th scope="row">SkySat · 27 Sep</th>\
+                        <td>' + (feature.properties['chip_skysat_27_sept_0001'] !== null ? '<img src="images/' + String(feature.properties['chip_skysat_27_sept_0001']).replace(/[\\/:]/g, '_').trim().replace(/'/g, '\'').replace(/"/g, '&quot;') + '">' : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">latitude</th>\
@@ -5591,11 +5236,6 @@
         function pop_SatellitefootprintsSkySat6Nov20262_73(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5661,11 +5301,6 @@
         function pop_SatellitefootprintsSkySat6Nov20261_74(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5731,11 +5366,6 @@
         function pop_PlatformTracksSlocumglider_75(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5805,11 +5435,6 @@
         function pop_PlatformTracksVessel_76(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5879,11 +5504,6 @@
         function pop_PlatformTracksAerialsurvey_77(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -5953,11 +5573,6 @@
         function pop_WhaleDetectionsOpportunisticsightingdefinitevisual_78(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6061,11 +5676,6 @@
         function pop_WhaleDetectionsAerialsurveydefinitevisual_79(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6168,11 +5778,6 @@
         function pop_WhaleDetectionsVesselsurveydefinitevisual_80(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6276,11 +5881,6 @@
         function pop_WhaleDetectionsSlocumgliderpossibleacoustic_81(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6383,11 +5983,6 @@
         function pop_WhaleDetectionsSlocumgliderdefiniteacoustic_82(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6490,11 +6085,6 @@
         function pop_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6598,11 +6188,6 @@
         function pop_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6703,14 +6288,9 @@
             },
         });
         bounds_group.addLayer(layer_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84);
-        function pop_PossibleNARWSatelliteDetectionMedium_85(feature, layer) {
+        function pop_PossibleNARWSatelliteDetectionpotentialcallosity_85(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6725,14 +6305,6 @@
                     <tr>\
                         <th scope="row">Confidence</th>\
                         <td>' + (feature.properties['Confidence'] !== null ? autolinker.link(String(feature.properties['Confidence']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">target_type</th>\
-                        <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">length_meters</th>\
-                        <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">notes</th>\
@@ -6757,6 +6329,10 @@
                         <th scope="row">longitude</th>\
                         <td>' + (feature.properties['longitude'] !== null ? autolinker.link(String(feature.properties['longitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <th scope="row">Time of observation</th>\
+                        <td>' + (feature.properties['image_time'] !== null ? autolinker.link(String(feature.properties['image_time']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -6764,15 +6340,15 @@
 			});
 			layer.bindPopup(content, { maxHeight: 400 });
         }
-        function style_PossibleNARWSatelliteDetectionMedium_85_0(feature) {
+        function style_PossibleNARWSatelliteDetectionpotentialcallosity_85_0(feature) {
             var context = {
                 feature: feature,
                 variables: {}
             };
             // Start of if blocks and style check logic
-            if (exp_PossibleNARWSatelliteDetectionMedium_85rule0_eval_expression(context)) {
+            if (exp_PossibleNARWSatelliteDetectionpotentialcallosity_85rule0_eval_expression(context)) {
                   return {
-                pane: 'pane_PossibleNARWSatelliteDetectionMedium_85',
+                pane: 'pane_PossibleNARWSatelliteDetectionpotentialcallosity_85',
                 shape: 'x',
                 radius: 5.2,
                 opacity: 1,
@@ -6791,33 +6367,28 @@
                 return {fill: false, stroke: false};
             }
         }
-        map.createPane('pane_PossibleNARWSatelliteDetectionMedium_85');
-        map.getPane('pane_PossibleNARWSatelliteDetectionMedium_85').style.zIndex = 485;
-        map.getPane('pane_PossibleNARWSatelliteDetectionMedium_85').style['mix-blend-mode'] = 'normal';
-        var layer_PossibleNARWSatelliteDetectionMedium_85 = new L.geoJson(json_PossibleNARWSatelliteDetectionMedium_85, {
+        map.createPane('pane_PossibleNARWSatelliteDetectionpotentialcallosity_85');
+        map.getPane('pane_PossibleNARWSatelliteDetectionpotentialcallosity_85').style.zIndex = 485;
+        map.getPane('pane_PossibleNARWSatelliteDetectionpotentialcallosity_85').style['mix-blend-mode'] = 'normal';
+        var layer_PossibleNARWSatelliteDetectionpotentialcallosity_85 = new L.geoJson(json_PossibleNARWSatelliteDetectionpotentialcallosity_85, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_PossibleNARWSatelliteDetectionMedium_85',
-            layerName: 'layer_PossibleNARWSatelliteDetectionMedium_85',
-            pane: 'pane_PossibleNARWSatelliteDetectionMedium_85',
-            onEachFeature: pop_PossibleNARWSatelliteDetectionMedium_85,
+            dataVar: 'json_PossibleNARWSatelliteDetectionpotentialcallosity_85',
+            layerName: 'layer_PossibleNARWSatelliteDetectionpotentialcallosity_85',
+            pane: 'pane_PossibleNARWSatelliteDetectionpotentialcallosity_85',
+            onEachFeature: pop_PossibleNARWSatelliteDetectionpotentialcallosity_85,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_PossibleNARWSatelliteDetectionMedium_85_0(feature));
+                return L.shapeMarker(latlng, style_PossibleNARWSatelliteDetectionpotentialcallosity_85_0(feature));
             },
         });
-        bounds_group.addLayer(layer_PossibleNARWSatelliteDetectionMedium_85);
-        function pop_PossibleNARWSatelliteDetectionHigh_86(feature, layer) {
+        bounds_group.addLayer(layer_PossibleNARWSatelliteDetectionpotentialcallosity_85);
+        function pop_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6832,14 +6403,6 @@
                     <tr>\
                         <th scope="row">Confidence</th>\
                         <td>' + (feature.properties['Confidence'] !== null ? autolinker.link(String(feature.properties['Confidence']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">target_type</th>\
-                        <td>' + (feature.properties['target_type'] !== null ? autolinker.link(String(feature.properties['target_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">length_meters</th>\
-                        <td>' + (feature.properties['length_meters'] !== null ? autolinker.link(String(feature.properties['length_meters']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">notes</th>\
@@ -6864,6 +6427,10 @@
                         <th scope="row">longitude</th>\
                         <td>' + (feature.properties['longitude'] !== null ? autolinker.link(String(feature.properties['longitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <th scope="row">Time of observation</th>\
+                        <td>' + (feature.properties['image_time'] !== null ? autolinker.link(String(feature.properties['image_time']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -6871,15 +6438,15 @@
 			});
 			layer.bindPopup(content, { maxHeight: 400 });
         }
-        function style_PossibleNARWSatelliteDetectionHigh_86_0(feature) {
+        function style_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86_0(feature) {
             var context = {
                 feature: feature,
                 variables: {}
             };
             // Start of if blocks and style check logic
-            if (exp_PossibleNARWSatelliteDetectionHigh_86rule0_eval_expression(context)) {
+            if (exp_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86rule0_eval_expression(context)) {
                   return {
-                pane: 'pane_PossibleNARWSatelliteDetectionHigh_86',
+                pane: 'pane_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86',
                 shape: 'x',
                 radius: 5.2,
                 opacity: 1,
@@ -6898,33 +6465,28 @@
                 return {fill: false, stroke: false};
             }
         }
-        map.createPane('pane_PossibleNARWSatelliteDetectionHigh_86');
-        map.getPane('pane_PossibleNARWSatelliteDetectionHigh_86').style.zIndex = 486;
-        map.getPane('pane_PossibleNARWSatelliteDetectionHigh_86').style['mix-blend-mode'] = 'normal';
-        var layer_PossibleNARWSatelliteDetectionHigh_86 = new L.geoJson(json_PossibleNARWSatelliteDetectionHigh_86, {
+        map.createPane('pane_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86');
+        map.getPane('pane_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86').style.zIndex = 486;
+        map.getPane('pane_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86').style['mix-blend-mode'] = 'normal';
+        var layer_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86 = new L.geoJson(json_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_PossibleNARWSatelliteDetectionHigh_86',
-            layerName: 'layer_PossibleNARWSatelliteDetectionHigh_86',
-            pane: 'pane_PossibleNARWSatelliteDetectionHigh_86',
-            onEachFeature: pop_PossibleNARWSatelliteDetectionHigh_86,
+            dataVar: 'json_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86',
+            layerName: 'layer_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86',
+            pane: 'pane_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86',
+            onEachFeature: pop_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_PossibleNARWSatelliteDetectionHigh_86_0(feature));
+                return L.shapeMarker(latlng, style_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86_0(feature));
             },
         });
-        bounds_group.addLayer(layer_PossibleNARWSatelliteDetectionHigh_86);
+        bounds_group.addLayer(layer_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86);
         function pop_ZoneA_87(feature, layer) {
             layer.on({
                 mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
                     if (typeof layer.closePopup == 'function') {
                         layer.closePopup();
                     } else {
@@ -6974,9 +6536,9 @@
         var overlaysTree = [
         {label: '<b>Shipping Zones</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/ZoneA_87.png" /> Zone A', layer: layer_ZoneA_87},]},
-        {label: '<b>Oct 23 – Nov 6 · NARW candidates</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: 'Possible NARW Satellite Detection · High<br /><table><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetectionHigh_86_HighConfidence0.png" /></td><td>High Confidence</td></tr></table>', layer: layer_PossibleNARWSatelliteDetectionHigh_86},
-            {label: 'Possible NARW Satellite Detection · Medium<br /><table><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetectionMedium_85_MediumConfidence0.png" /></td><td>Medium Confidence</td></tr></table>', layer: layer_PossibleNARWSatelliteDetectionMedium_85},]},
+        {label: '<b>Oct 23 – Nov 6 · NARW candidates</b>',  selectAllCheckbox: true, children: [
+            {label: 'Possible NARW Satellite Detection · (isolated, length, callosity)<br /><table><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetectionisolatedlengthcallosity_86_isolatedlengthcallosity0.png" /></td><td>(isolated, length, callosity)</td></tr></table>', layer: layer_PossibleNARWSatelliteDetectionisolatedlengthcallosity_86},
+            {label: 'Possible NARW Satellite Detection · (potential & callosity)<br /><table><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetectionpotentialcallosity_85_potentialcallosity0.png" /></td><td>(potential & callosity)</td></tr></table>', layer: layer_PossibleNARWSatelliteDetectionpotentialcallosity_85},]},
         {label: '<b>Oct 23 – Nov 6 · Whale detections</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: 'Whale Detections · Buoy (moored hydrophone) - definite acoustic<br /><table><tr><td style="text-align: center;"><img src="legend/WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84_Buoymooredhydrophonedefiniteacoustic0.png" /></td><td>Buoy (moored hydrophone) - definite acoustic</td></tr></table>', layer: layer_WhaleDetectionsBuoymooredhydrophonedefiniteacoustic_84},
             {label: 'Whale Detections · Buoy (moored hydrophone) - possible acoustic<br /><table><tr><td style="text-align: center;"><img src="legend/WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83_Buoymooredhydrophonepossibleacoustic0.png" /></td><td>Buoy (moored hydrophone) - possible acoustic</td></tr></table>', layer: layer_WhaleDetectionsBuoymooredhydrophonepossibleacoustic_83},
@@ -6995,7 +6557,7 @@
         {label: '<b>Oct 23 – Nov 6 · RCM imagery</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: "RCM 6 Nov 2026", layer: layer_RCM6Nov2026_72},
             {label: "RCM 5 Nov 2026", layer: layer_RCM5Nov2026_71},]},
-        {label: '<b>Oct 1 – 22 · NARW candidates</b>', collapsed: true, selectAllCheckbox: true, children: [
+        {label: '<b>Oct 1 – 22 · NARW candidates</b>',  selectAllCheckbox: true, children: [
             {label: 'Possible NARW Satellite Detection · High<br /><table><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetectionHigh_70_HighConfidence0.png" /></td><td>High Confidence</td></tr></table>', layer: layer_PossibleNARWSatelliteDetectionHigh_70},
             {label: 'Possible NARW Satellite Detection · Medium<br /><table><tr><td style="text-align: center;"><img src="legend/PossibleNARWSatelliteDetectionMedium_69_MediumConfidence0.png" /></td><td>Medium Confidence</td></tr></table>', layer: layer_PossibleNARWSatelliteDetectionMedium_69},]},
         {label: '<b>Oct 1 – 22 · Whale detections</b>', collapsed: true, selectAllCheckbox: true, children: [
@@ -7011,7 +6573,7 @@
             {label: 'Satellite footprints · SkySat 21 Oct 2026 (1)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsSkySat21Oct20261_61_27Sep202610.png" /></td><td>27 Sep 2026 (1)</td></tr></table>', layer: layer_SatellitefootprintsSkySat21Oct20261_61},
             {label: 'Satellite footprints · SkySat 21 Oct 2026 (2)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsSkySat21Oct20262_60_27Sep202610.png" /></td><td>27 Sep 2026 (1)</td></tr></table>', layer: layer_SatellitefootprintsSkySat21Oct20262_60},
             {label: 'Satellite footprints · SkySat 21 Oct 2026 (3)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsSkySat21Oct20263_59_27Sep202610.png" /></td><td>27 Sep 2026 (1)</td></tr></table>', layer: layer_SatellitefootprintsSkySat21Oct20263_59},]},
-        {label: '<b>Oct 1 – 22 · RCM imagery</b>', collapsed: true, selectAllCheckbox: true, children: [
+        {label: '<b>Oct 1 – 22 · RCM imagery</b>',  selectAllCheckbox: true, children: [
             {label: "RCM 1 Oct 2026 Contrast", layer: layer_RCM1Oct2026Contrast_58},
             {label: "RCM 1 Oct 2026", layer: layer_RCM1Oct2026_57},]},
         {label: '<b>Sept 20 – 30 · NARW candidates</b>', collapsed: true, selectAllCheckbox: true, children: [
@@ -7039,7 +6601,7 @@
             {label: 'Satellite footprints · PNEO 27 Sep 2026 (1)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsPNEO27Sep20261_39_27Sep202610.png" /></td><td>27 Sep 2026 (1)</td></tr></table>', layer: layer_SatellitefootprintsPNEO27Sep20261_39},
             {label: 'Satellite footprints · PNEO 27 Sep 2026 (2)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsPNEO27Sep20262_38_27Sep202620.png" /></td><td>27 Sep 2026 (2)</td></tr></table>', layer: layer_SatellitefootprintsPNEO27Sep20262_38},
             {label: 'Satellite footprints · PNEO 27 Sep 2026 (3)<br /><table><tr><td style="text-align: center;"><img src="legend/SatellitefootprintsPNEO27Sep20263_37_27Sep202630.png" /></td><td>27 Sep 2026 (3)</td></tr></table>', layer: layer_SatellitefootprintsPNEO27Sep20263_37},]},
-        {label: '<b>Sept 20 – 30 · RCM imagery</b>', collapsed: true, selectAllCheckbox: true, children: [
+        {label: '<b>Sept 20 – 30 · RCM imagery</b>',  selectAllCheckbox: true, children: [
             {label: "RCM 28 Sep 2026 Contrast", layer: layer_RCM28Sep2026Contrast_36},
             {label: "RCM 28 Sep 2026", layer: layer_RCM28Sep2026_35},
             {label: "RCM 27 Sep 2026", layer: layer_RCM27Sep2026_34},
@@ -7086,7 +6648,7 @@
             {label: "RCM 2 Sep 2026", layer: layer_RCM2Sep2026_3},
             {label: "RCM 30 Aug 2026", layer: layer_RCM30Aug2026_2},]},
             {label: "Google Labels", layer: layer_GoogleLabels_1},
-            {label: "Google Satellite", layer: layer_GoogleSatellite_0, radioGroup: 'bm' },]
+            {label: "Google Satellite", layer: layer_GoogleSatellite_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
